@@ -5,9 +5,9 @@ import {
   Switch
 } from 'react-router-dom';
 import CreateEvent from './components/CreateEvent/CreateEvent';
-import ViewEvent from './components/ViewEvent/ViewEvent';
+// import ViewEvent from './components/ViewEvent/ViewEvent';
 import NotFound from './components/NotFound/NotFound';
-import API from "./utils/API";
+import HomePage from './components/HomePage/HomePage';
 
 function App() {
 
@@ -15,7 +15,8 @@ function App() {
       <Router>
 		  <main>
       <Switch>
-						<Route path="/" exact component={CreateEvent} />
+						<Route path="/" exact component={HomePage} />
+            <Route path="/create" exact component={CreateEvent} />
 						{/* <Route path="/vote/:id" component={StrawpollVote} />
 						<Route path="/show/:id" component={StrawpollShow} /> */}
 			  		<Route component={NotFound} />
