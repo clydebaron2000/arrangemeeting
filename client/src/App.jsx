@@ -12,8 +12,6 @@ import API from "./utils/API";
 function App() {
 
   return (
-    <div>
-      <h1>App</h1>
       <Router>
 		  <main>
       <Switch>
@@ -24,7 +22,6 @@ function App() {
 			  	</Switch>
           </main>
         </Router>
-    </div>
   );
 }
 

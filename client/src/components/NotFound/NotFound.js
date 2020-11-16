@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "./style.css";
 
 const NotFound = () => (
-    <div>
+	<div>
 	  <h2>404 - Page not found!</h2>
 	  <p><Link to="/">Head back to home</Link></p>
-    </div>
+	</div>
 );
 
 export default NotFound;
