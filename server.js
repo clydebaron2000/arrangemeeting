@@ -1,29 +1,40 @@
-const express = require("express");
-const path = require("path");
-const mongoose = require("mongoose");
-const PORT = process.env.PORT || 3001;
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const Router = require('./routes/apiroutes.js');
+
 const app = express();
-const apiRoutes = require("./routes/apiRoutes"); // Define middleware here
-app.use(express.urlencoded({
-    extended: true
-}));
+const port = process.env.PORT || 5000;
+
+app.use(cors());
 app.use(express.json());
-// Serve up static assets (usually on heroku)
+
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/rendezvous_db', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+  
+    });
+
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log("MongoDB database connection established successfully");
+});
+
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
-} // Connect to the Mongo DB
-mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/rendezvous_db", {
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-        useCreateIndex: true
-    }
-); // Use apiRoutes
-app.use("/api", apiRoutes); // Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-app.listen(PORT, function () {
-    console.log(`:earth_americas: ==> API server now on port ${PORT}!`);
+  }
+  
+
+
+// routes
+app.use(Router);
+
+
+
+
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
 });

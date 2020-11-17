@@ -2,12 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  // url string for thumbnail image
   email: {
+    type: String,
+    default: ""
+  },
+  password: {
     type: String,
     default: ""
   }
