@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const Router = require('./routes/apiroutes.js');
 const session = require('express-session');
 const passport = require('passport');
+const root = require('./');
+const MongoStore = require('connect-mongo')(session);
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -33,6 +35,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(session(
     {  
         secret: 'waggle-fraggle', //pick a random string to make the hash that is generated secure
+        store: new MongoStore({ mongooseConnection: connection }),
         resave: false, //required
         saveUninitialized: false //required
     })

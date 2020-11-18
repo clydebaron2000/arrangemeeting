@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 import SignUp from '../SignUp/SignUp';
 import LogIn from '../LogIn/LogIn';
+import Logout from '../Logout/Logout';
 
 const HomePage = () => (
 	<div>
@@ -10,6 +11,7 @@ const HomePage = () => (
       <p><Link to="/create">Create Event</Link></p>
 	  <SignUp></SignUp>
 	  <LogIn></LogIn>
+	  <Logout></Logout>
 	  </div>
 );
 
