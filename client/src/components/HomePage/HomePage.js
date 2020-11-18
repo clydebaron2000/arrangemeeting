@@ -7,8 +7,8 @@ import Logout from '../Logout/Logout';
 
 const HomePage = () => (
 	<div>
-	  <h2>Home Page!</h2>
-      <p><Link to="/create">Create Event</Link></p>
+	  <h2>Welcome to Rendezvous!</h2>
+      <p><Link class="btnLink" to="/create">Create Event</Link></p>
 	  <SignUp></SignUp>
 	  <LogIn></LogIn>
 	  <Logout></Logout>
