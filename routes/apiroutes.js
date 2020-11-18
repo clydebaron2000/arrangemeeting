@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const db = require('../models');
-const passport = require("../config/passport");
+const passport = require("../config");
 
-router.route('/api/user').post(({
+router.post('/api/user', ({
     body
 }, res) => {
     db.users.create(body)
@@ -14,18 +14,22 @@ router.route('/api/user').post(({
         })
 });
 
-router.route('/login').post((req, res, next) => {
-        console.log('routes/user.js login, req.body: ', req.body);
-        next();
+router.post(
+    '/login',
+    function (req, res, next) {
+        console.log('routes/user.js, login, req.body: ');
+        console.log(req.body)
+        next()
     },
     passport.authenticate('local'),
     (req, res) => {
-        console.log('logged in', req.email);
+        console.log('logged in', req.user);
         var userInfo = {
             email: req.user.email
         };
         res.send(userInfo);
-    });
+    }
+)
 
 
 module.exports = router;
