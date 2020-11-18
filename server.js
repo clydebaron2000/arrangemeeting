@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const Router = require('./routes/apiroutes.js');
 const session = require('express-session');
+const passport = require('passport');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -31,15 +32,17 @@ if (process.env.NODE_ENV === "production") {
 //sessions
 app.use(session(
     {  
-        secret: 'waggle-fraggle', //pick a random string to make the hash that is generated secure  resave: false, //required  saveUninitialized: false //required}))
+        secret: 'waggle-fraggle', //pick a random string to make the hash that is generated secure
         resave: false, //required
         saveUninitialized: false //required
     })
 )
 
-app.use( (req, res, next) => {  console.log('req.session', req.session);  next()});
+// app.use( (req, res, next) => {  console.log('req.session', req.session);  next()});
   
-
+//passport
+app.use(passport.initialize());
+app.use(passport.session()) // calls serializeUser and deserializeUser
 
 // routes
 app.use(Router);
