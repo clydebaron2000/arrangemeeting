@@ -18,8 +18,6 @@ export default class HomePage extends Component {
 	  			<h2>Welcome to Rendezvous!</h2>
 				<p><Link to="/logIn">Login</Link></p>
 				<p><Link to="/signup">Sign Up</Link></p>
-				<button onClick={this.handleClick}>Login</button>
-	  			{/* <LogIn></LogIn> */}
 	  		</div>
 		)
 		}
