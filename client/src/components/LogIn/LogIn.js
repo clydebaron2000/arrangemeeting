@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 export default class SignUp extends Component {
@@ -35,7 +36,7 @@ export default class SignUp extends Component {
                 this.setState({
                     loggedIn: true
                 })
-                // alert("Login Successful!");
+                window.location = '/create';
             }
         }).catch(error => {
             console.log('Login Error: ', error);
@@ -75,6 +76,7 @@ export default class SignUp extends Component {
               <input type="submit" value="Login" className="btn btn-secondary" />
             </div>
           </form>
+          <p><Link to="/">Head back to home</Link></p>
         </div>
     );
     }

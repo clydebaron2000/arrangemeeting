@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 export default class SignUp extends Component {
@@ -34,11 +35,10 @@ export default class SignUp extends Component {
             console.log(res);
             if(res.data) {
                 console.log('Succesful Signup');
-                this.setState({
-                    redirectTo: '/create'
-                })
+                window.location = '/logIn';
             } else {
                 console.log('Signup Error');
+                alert('Signup Error');
             }
         }) .catch(error => {
             console.log('Signup server error: ', error);
@@ -77,6 +77,7 @@ export default class SignUp extends Component {
               <input type="submit" value="Create Account" className="btn btn-secondary" />
             </div>
           </form>
+          <p><Link to="/">Head back to home</Link></p>
         </div>
     );
     }
