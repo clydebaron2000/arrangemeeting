@@ -8,6 +8,8 @@ import CreateEvent from './components/CreateEvent/CreateEvent';
 // import ViewEvent from './components/ViewEvent/ViewEvent';
 import NotFound from './components/NotFound/NotFound';
 import HomePage from './components/HomePage/HomePage';
+import LogIn from './components/LogIn/LogIn';
+import SignUp from './components/SignUp/SignUp';
 
 function App() {
 
@@ -17,8 +19,8 @@ function App() {
       <Switch>
 						<Route path="/" exact component={HomePage} />
             <Route path="/create" exact component={CreateEvent} />
-						{/* <Route path="/vote/:id" component={StrawpollVote} />
-						<Route path="/show/:id" component={StrawpollShow} /> */}
+            <Route path="/logIn" exact component={LogIn} />
+            <Route path="/signup" exact component={SignUp} />
 			  		<Route component={NotFound} />
 			  	</Switch>
           </main>

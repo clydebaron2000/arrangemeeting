@@ -8,7 +8,8 @@ export default class SignUp extends Component {
 
     state = {
         email: '',
-        password: ''
+        password: '',
+        loggedIn: false
     }
 
     handleInputChange = event => {
@@ -25,33 +26,31 @@ export default class SignUp extends Component {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         event.preventDefault();
 
-        console.log("button was pushed");
-
-        axios.post('http://localhost:5000/api/user', {
+        axios.post('http://localhost:5000/login', {
             email: this.state.email,
             password: this.state.password
         })
         .then(res => {
-            console.log(res);
-            if(res.data) {
-                console.log('Succesful Signup');
-                window.location = '/logIn';
-            } else {
-                console.log('Signup Error');
-                alert('Signup Error');
+            console.log('Login Response: ', res);
+            if(res.status === 200) {
+                this.setState({
+                    loggedIn: true
+                })
+                window.location = '/create';
             }
-        }) .catch(error => {
-            console.log('Signup server error: ', error);
+        }).catch(error => {
+            console.log('Login Error: ', error);
         })
+
+        
     };
 
 
     render () { 
         return (
         <div>
-          
           <form onSubmit={this.onSubmit}>
-          <h3>Sign Up</h3>
+          <h3>Login</h3>
             <div className="form-group"> 
               <label>Email: </label>
               <input  type="text"
@@ -74,7 +73,7 @@ export default class SignUp extends Component {
             </div>
     
             <div className="form-group">
-              <input type="submit" value="Create Account" className="btn btn-secondary" />
+              <input type="submit" value="Login" className="btn btn-secondary" />
             </div>
           </form>
           <p><Link to="/">Head back to home</Link></p>

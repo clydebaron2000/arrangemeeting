@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const db = require('../models');
+const passport = require("../config");
 
-router.route('/api/user').post(({body}, res) => {
+router.post('/api/user', ({
+    body
+}, res) => {
     db.users.create(body)
         .then(dbUser => {
             res.json(dbUser);
@@ -10,6 +13,27 @@ router.route('/api/user').post(({body}, res) => {
             res.status(404).json(err);
         })
 });
+
+router.post('/login',
+    function (req, res, next) {
+        console.log('routes/user.js, login, req.body: ');
+        console.log(req.body)
+        next()
+    },
+    passport.authenticate('local'),
+    (req, res) => {
+        console.log('logged in', req.user);
+        var userInfo = {
+            email: req.user.email
+        };
+        res.send(userInfo);
+    }
+)
+
+router.get('/logout', (req, res) => {
+    req.logout();
+    res.send('Logged Out Successfully');
+})
 
 
 module.exports = router;
