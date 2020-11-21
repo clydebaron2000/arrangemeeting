@@ -5,13 +5,27 @@ const Router = require('./routes/apiroutes.js');
 const session = require('express-session');
 const passport = require('passport');
 const root = require('./');
+const router = require('./routes/apiroutes.js');
 const MongoStore = require('connect-mongo')(session);
+const bodyParser = require('body-parser');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+
+//cors stuff
+const loginoptions = {
+    origin: true,
+    methods: ["GET,POST,PUT,DELETE"],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+  };
+  app.options(router, cors(loginoptions));
 
 mongoose.connect(
     process.env.MONGODB_URI || 'mongodb://localhost/rendezvous_db', {
