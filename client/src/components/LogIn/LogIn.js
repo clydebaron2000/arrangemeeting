@@ -29,7 +29,7 @@ export default class SignUp extends Component {
         axios.post('/login', {
             email: this.state.email,
             password: this.state.password
-        })
+        }, { withCredentials: true })
         .then(res => {
             console.log('Login Response: ', res);
             if(res.status === 200) {

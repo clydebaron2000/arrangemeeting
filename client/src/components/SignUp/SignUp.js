@@ -24,9 +24,7 @@ export default class SignUp extends Component {
     onSubmit = event => {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         event.preventDefault();
-
         console.log("button was pushed");
-
         axios.post('/api/user', {
             email: this.state.email,
             password: this.state.password
@@ -40,7 +38,7 @@ export default class SignUp extends Component {
                 console.log('Signup Error');
                 alert('Signup Error');
             }
-        }) .catch(error => {
+        }).catch(error => {
             console.log('Signup server error: ', error);
         })
     };

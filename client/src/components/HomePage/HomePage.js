@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
-import SignUp from '../SignUp/SignUp';
-import LogIn from '../LogIn/LogIn';
-import Logout from '../Logout/Logout';
 
 export default class HomePage extends Component {
 
