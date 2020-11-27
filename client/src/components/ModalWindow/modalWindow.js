@@ -14,6 +14,10 @@ function Modal1() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  
+  const handleSubmit = () => {
+    window.location = '/view';
+  }
 
   return (
     <>
@@ -37,7 +41,7 @@ function Modal1() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary">Create</Button>
+          <Button variant="primary" onClick={handleSubmit}>Create</Button>
         </Modal.Footer>
       </Modal>
     </>
