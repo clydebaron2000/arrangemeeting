@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
+import Example from '../ModalWindow/modalWindow'
 
 export default class CreateEvent extends Component {
 
@@ -33,6 +34,12 @@ export default class CreateEvent extends Component {
         return (
 
 			<div>
+					<div className= "createEventDiv">
+		
+		<h2 className="createH2">Create Event Page!</h2>
+	  <Example/>
+		 
+	  </div>
 	  			<h2>Welcome to Rendezvous!</h2>
 				{this.state.loading === true ? <h1>loading</h1> : this.state.loggedIn ? <h1> logged in </h1> : <Redirect to = {{pathname: "/"}} /> }
 				<p><Link to="/">Head Back to Home</Link></p>
@@ -45,19 +52,19 @@ export default class CreateEvent extends Component {
 // 	import React from 'react';
 // import { Link } from 'react-router-dom';
 // import "./style.css";
-// import Example from '../ModalWindow/modalWindow'
 
 
 
 
-// const CreateEvent = () => (
-// 	<div className= "createEventDiv">
+
+const CreateEventModal = () => (
+	<div className= "createEventDiv">
 		
-// 	  <h2 className="createH2">Create Event Page!</h2>
-//     <Example/>
+	  <h2 className="createH2">Create Event Page!</h2>
+    <Example/>
        
-// 	  <p><Link to="/">Head back to home</Link></p>	
-// 	</div>
-// );
+	  <p><Link to="/">Head back to home</Link></p>	
+	</div>
+);
 
-// export default CreateEvent;
+

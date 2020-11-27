@@ -18,7 +18,7 @@ function Modal1() {
   return (
     <>
       <Button variant="success" onClick={handleShow}>
-        Launch static backdrop modal
+        Create Event Button
       </Button>
 
       <Modal
@@ -28,11 +28,10 @@ function Modal1() {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Event title</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          I will not close if you click outside me. Don't even try to press
-          escape key.
+        <textarea id="textareaID" class="form-control"></textarea>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
