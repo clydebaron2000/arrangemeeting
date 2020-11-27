@@ -26,7 +26,7 @@ export default class SignUp extends Component {
         // Preventing the default behavior of the form submit (which is to refresh the page)
         event.preventDefault();
 
-        axios.post('http://localhost:5000/login', {
+        axios.post('/login', {
             email: this.state.email,
             password: this.state.password
         })

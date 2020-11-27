@@ -27,7 +27,7 @@ export default class SignUp extends Component {
 
         console.log("button was pushed");
 
-        axios.post('http://localhost:5000/api/user', {
+        axios.post('/api/user', {
             email: this.state.email,
             password: this.state.password
         })
