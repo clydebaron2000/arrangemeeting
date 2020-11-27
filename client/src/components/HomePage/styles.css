@@ -13,7 +13,7 @@ h2 {
     background-color: brown;
   }
 
-  a:link {
+  .LoginButton, .SignupButton {
     width: 250px;
     margin: 20px 300px;
     display: inline-block;
@@ -28,7 +28,7 @@ h2 {
     background-color: yellow;
 
   }
-  a:hover{
+  .LoginButton:hover, .SignupButton:hover{
       background-color: lightblue;
   }
 
