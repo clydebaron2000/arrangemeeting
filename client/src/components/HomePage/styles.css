@@ -1,16 +1,25 @@
+/* added this styling so that components will fit the entire container */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
 h2 {
     width: 750px;
     /* border: 15px solid green; */
     padding: 50px;
     margin: 20px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 36px;
     
   }
 
   body {
-    background-color: brown;
+    /* background-color: brown; */
+    background-color: #cbf4fb;
   }
 
   .LoginButton, .SignupButton {
@@ -22,7 +31,7 @@ h2 {
     border-radius: 8px;
     text-decoration: none;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 18px;
     color: black;
     background-color: yellow;
