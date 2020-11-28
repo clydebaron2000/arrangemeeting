@@ -12,7 +12,7 @@ import HomePage from './components/HomePage/HomePage';
 import LogIn from './components/LogIn/LogIn';
 import SignUp from './components/SignUp/SignUp';
 import ViewEvent from './components/ViewEvent/ViewEvent'
-import DemoApp from './components/Calender/calender'
+
 
 function App() {
 
@@ -25,7 +25,7 @@ function App() {
             <Route path="/logIn" exact component={LogIn} />
             <Route path="/signup" exact component={SignUp} />
             <Route path="/view" exact component={ViewEvent} />
-            <Route path="/calender" exact component={DemoApp} />
+
 			  		<Route component={NotFound} />
 			  	</Switch>
           </main>
