@@ -6,17 +6,17 @@ export const MenuItems = [
     },    
     {
         title: 'Create Event',
-        url: '#',
+        url: '/create',
         cName: 'nav-links'
     },    
     {
         title: 'Login',
-        url: '#',
+        url: '/logIn',
         cName: 'nav-links'
     },    
     {
         title: 'Sign Up',
-        url: '#',
+        url: '/signup',
         cName: 'nav-links-mobile'
     }
 ]

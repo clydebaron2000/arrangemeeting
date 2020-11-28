@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
+    text-decoration: none;
 }
 
 .navbar-logo {
@@ -42,9 +43,9 @@
     color: #f4f4ec;
 }
 
-.nav-links-mobile {
+/* .nav-links-mobile {
     display: none;
-}
+} */
 
 .menu-icon {
     display: none;
@@ -80,6 +81,7 @@
         padding: 2rem;
         width: 100%;
         display: table;
+        text-decoration: none;
     }
 
     .nav-links:hover {

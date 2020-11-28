@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
-import Example from '../ModalWindow/modalWindow'
+import Example from '../../components/ModalWindow/modalWindow'
 
 export default class CreateEvent extends Component {
 
