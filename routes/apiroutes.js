@@ -2,6 +2,10 @@ const router = require('express').Router();
 const db = require('../models');
 const passport = require("../config");
 
+//-------------------------------------------
+//USER ROUTES
+//-------------------------------------------
+
 router.post('/api/user', ({
     body
 }, res) => {
@@ -13,6 +17,20 @@ router.post('/api/user', ({
             res.status(404).json(err);
         })
 });
+
+// router.get('/user/:id', ({body, params}, res) => {
+//     db.users.findById(params._id, (error) => {
+//         if(error) throw error;
+//     }) .then(dbUser => {
+//         res.render(JSON.stringify(dbUser));
+//     })
+// })
+
+
+//-------------------------------------------
+//LOGIN ROUTES ROUTES
+//-------------------------------------------
+
 
 router.post('/login',
     function (req, res, next) {
@@ -51,5 +69,22 @@ router.get('/logged_in', (req, res) => {
     res.send(req.user);
 })
 
+
+//-------------------------------------------
+//EVENT ROUTES ROUTES
+//-------------------------------------------
+
+
+router.post('/api/event', ({
+    body
+}, res) => {
+    db.events.create(body)
+        .then(dbUser => {
+            res.json(dbUser);
+        })
+        .catch(err => {
+            res.status(404).json(err);
+        })
+});
 
 module.exports = router;
