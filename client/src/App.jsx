@@ -5,12 +5,13 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import CreateEvent from './components/CreateEvent/CreateEvent';
+import CreateEvent from './pages/CreateEvent/CreateEvent';
 // import ViewEvent from './components/ViewEvent/ViewEvent';
 import NotFound from './components/NotFound/NotFound';
 import HomePage from './components/HomePage/HomePage';
-import LogIn from './components/LogIn/LogIn';
-import SignUp from './components/SignUp/SignUp';
+import LogIn from './pages/LogIn/LogIn';
+import SignUp from './pages/SignUp/SignUp';
+import ViewEvent from './pages/ViewEvent/ViewEvent'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/create" exact component={CreateEvent} />
             <Route path="/logIn" exact component={LogIn} />
             <Route path="/signup" exact component={SignUp} />
+            <Route path="/view" exact component={ViewEvent} />
 			  		<Route component={NotFound} />
 			  	</Switch>
           </main>
