@@ -12,9 +12,7 @@ const eventSchema = new mongoose.Schema({
   },
   //date object array
   valid_dates: [{
-    date: {
       type: Date
-    }
   }],
   //int saved as military time
   valid_times: {
@@ -28,10 +26,8 @@ const eventSchema = new mongoose.Schema({
   calendar_matrix: [[[]]],
   //empty list of lists
   names_list: [{
-    name: {
       type: String,
       default: ""
-    }
   }],
   created_by: {
     type: String,
