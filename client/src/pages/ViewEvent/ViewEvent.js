@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import DemoApp from "../Calender/calender"
-
+import DemoApp from "../../components/Calender/calender"
 const ViewEvent = () => (
 	<div className= "viewEventDiv">
 		
@@ -11,5 +10,10 @@ const ViewEvent = () => (
 	  <p><Link to="/">Head back to home</Link></p>	
 	</div>
 );
+
+
+
+
+
 
 export default ViewEvent

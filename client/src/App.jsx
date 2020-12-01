@@ -5,13 +5,13 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import CreateEvent from './components/CreateEvent/CreateEvent';
+import CreateEvent from './pages/CreateEvent/CreateEvent';
 // import ViewEvent from './components/ViewEvent/ViewEvent';
 import NotFound from './components/NotFound/NotFound';
-import HomePage from './components/HomePage/HomePage';
-import LogIn from './components/LogIn/LogIn';
-import SignUp from './components/SignUp/SignUp';
-import ViewEvent from './components/ViewEvent/ViewEvent'
+import HomePage from './pages/HomePage/HomePage';
+import LogIn from './pages/LogIn/LogIn';
+import SignUp from './pages/SignUp/SignUp';
+import ViewEvent from './pages/ViewEvent/ViewEvent'
 
 
 function App() {
