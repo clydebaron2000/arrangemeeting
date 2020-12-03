@@ -87,4 +87,38 @@ router.post('/api/event', ({
         })
 });
 
+router.get('/api/event/:url_end', ({body, params}, res) => {
+    db.events.find({
+        url_end: params.url_end
+    }) .then(dbEvent => {
+        res.send(dbEvent)
+    }) .catch(err => {
+        res.status(400);
+    })
+})
+
+router.get('/api/event/:_id', ({body, params}, res) => {
+    db.events.find({
+        _id: params._id
+    }) .then(dbEvent => {
+        res.send(dbEvent)
+    }) .catch(err => {
+        res.status(400);
+    })
+})
+
+router.put('/api/event/:_id', ({body, params}, res) => {
+    db.events.findByIdAndUpdate(body._id, {
+        name: body.name,
+        description: body.description,
+        valid_dates: body.valid_dates,
+        valid_times: body.valid_times,
+        calendar_matrix: body.calendar_matrix,
+        names_list: body.names_list,
+        created_by: body.created_by,
+        url_end: body.url_end
+    })
+})
+
+
 module.exports = router;
