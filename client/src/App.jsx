@@ -8,7 +8,7 @@ import {
 import CreateEvent from './pages/CreateEvent/CreateEvent';
 // import ViewEvent from './components/ViewEvent/ViewEvent';
 import NotFound from './components/NotFound/NotFound';
-import HomePage from './components/HomePage/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import LogIn from './pages/LogIn/LogIn';
 import SignUp from './pages/SignUp/SignUp';
 import ViewEvent from './pages/ViewEvent/ViewEvent'
