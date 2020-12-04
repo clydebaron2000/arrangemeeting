@@ -28,12 +28,11 @@ const loginoptions = {
   app.options(router, cors(loginoptions));
 
 mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/rendezvous_db', {
+    process.env.MONGODB_URI || 'mongodb://localhost/arrangemeeting_db', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
       useFindAndModify: false
-  
     });
 
 const connection = mongoose.connection;
