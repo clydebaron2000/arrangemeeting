@@ -41,7 +41,7 @@ export default class CreateEvent extends Component {
 		 
 	  </div>
 	  			<h2>Welcome to Rendezvous!</h2>
-				{this.state.loading === true ? <h1>loading</h1> : this.state.loggedIn ? <h1> logged in </h1> : <Redirect to = {{pathname: "/"}} /> }
+				{this.state.loading === true ? <h1>loading</h1> : this.state.loggedIn ? <h1> logged in </h1> : <Redirect to = {{pathname: "/logIn"}} /> }
 				<p><Link to="/">Head Back to Home</Link></p>
 	  		</div>
 		)

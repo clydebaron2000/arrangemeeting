@@ -24,8 +24,11 @@ function App() {
             <Route path="/create" exact component={CreateEvent} />
             <Route path="/logIn" exact component={LogIn} />
             <Route path="/signup" exact component={SignUp} />
-            <Route path="/view" exact component={ViewEvent} />
-
+            <Route path="/event/:urlending" exact component={ViewEvent} /> 
+            {/* TODO: modify event compnent */}
+            {/* to create event, submit to server event object
+            then, reroute to ourdomain.com/event/urlending
+            */}
 			  		<Route component={NotFound} />
 			  	</Switch>
           </main>
