@@ -11,7 +11,7 @@ import NotFound from './components/NotFound/NotFound';
 import HomePage from './pages/HomePage/HomePage';
 import LogIn from './pages/LogIn/LogIn';
 import SignUp from './pages/SignUp/SignUp';
-import Event from './pages/Event/Event'
+// import Event from './pages/Event/event'
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
             <Route path="/create" exact component={CreateEvent} />
             <Route path="/logIn" exact component={LogIn} />
             <Route path="/signup" exact component={SignUp} />
-            <Route path="/event/:urlending" exact component={Event} /> 
+            {/* <Route path="/event/:urlending" exact component={Event} />  */}
 			  		<Route component={NotFound} />
 			  	</Switch>
           </main>
