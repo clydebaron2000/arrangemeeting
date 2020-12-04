@@ -68,7 +68,7 @@ const EventPage = () => {
 	return (
 	<div>
 		{/* TODO: modify EventInfo to accomodate object */}
-		<EventInfo title={eventData.description} description={eventData.description} handleInputChange={null}/>
+		<EventInfo title={eventData.title} description={eventData.description} handleInputChange={null}/>
 		<button id='shareBtn'>Share this event link!</button>
 		<CalendarGrid 
 		valid_dates={eventData.valid_dates}
