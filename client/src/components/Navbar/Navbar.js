@@ -13,7 +13,7 @@ export default class Navbar extends Component {
     render() {
         return (
             <nav className="NavbarItems">
-                <h1 className="navbar-logo">Rendezvous</h1>
+                <a href="/" className="navbar-logo">Link Up <i className="fas fa-link"></i></a>
                 <div className="menu-icon" onClick={this.handleClick}>
                     {/* <i></i> */}
                     <i className={this.state.active ? 'fas fa-times' : 'fas fa-bars'}></i>
