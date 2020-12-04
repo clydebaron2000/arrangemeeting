@@ -13,6 +13,7 @@ import LogIn from './pages/LogIn/LogIn';
 import SignUp from './pages/SignUp/SignUp';
 import ViewEvent from './pages/ViewEvent/ViewEvent'
 
+
 function App() {
 
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/create" exact component={CreateEvent} />
             <Route path="/logIn" exact component={LogIn} />
             <Route path="/signup" exact component={SignUp} />
+            <Route path="/view" exact component={ViewEvent} />
             <Route path="/event/:urlending" exact component={ViewEvent} /> 
             {/* TODO: modify event compnent */}
             {/* to create event, submit to server event object
