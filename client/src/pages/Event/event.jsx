@@ -1,8 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import { Link,Redirect,useParams } from 'react-router-dom'
 import API from '../../utils/api'
-import EventTitle from '../../components/EventTitle/'
-import EventDescription from '../../components/EventDescription/'
+import EventInfo from '../../components/EventInfo/'
 import CalendarGrid from '../../components/CalendarGrid';
 const EventPage = () => {
 	const [eventData,setData]=useState({});
@@ -21,31 +20,32 @@ const EventPage = () => {
 		API.postEvent(eventData);
 	}
 	
-	const handleInputChange=event=>{
+	const handleCalendarChange=calendar_data=>{
 		//update data
-		const new_data=null;//TODO: update this
+		let temp_data=eventData;
+		temp_data.calendar_matrix=calendar_data.calendar_matrix
+		temp_data.names_list=calendar_data.names_list
+		const new_data=temp_data;
 		setData(new_data);
 	}
+	
 	useEffect(()=>{
 		updateData(eventData)
 		fetchDataBy_urlending(urlending)
 	},[eventData]);
-	//first fetch
+	//first fetch to iniitlaize page
 	fetchDataBy_urlending(urlending)
-	
-	
 	return (
 	<div>
-		<EventTitle title={eventData.description}/>
-		<button id='editBtn'>Edit Event</button>
+		{/* TODO: modify EventInfo to accomodate object */}
+		<EventInfo title={eventData.description} description={eventData.description} handleInputChange={null}/>
 		<button id='shareBtn'>Share this event link!</button>
-		<EventDescription description={eventData.description}/>
 		<CalendarGrid 
 		valid_dates={eventData.valid_dates}
 		valid_times={eventData.valid_times}
 		calendar_matrix={eventData.calendar_matrix}
 		names_list={eventData.names_list}
-		handleInputChange={handleInputChange}
+		handleInputChange={handleCalendarChange}
 		/>     
 	</div>
 )};
