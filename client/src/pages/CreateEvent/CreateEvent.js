@@ -50,22 +50,3 @@ export default class CreateEvent extends Component {
 }
 
 
-// 	import React from 'react';
-// import { Link } from 'react-router-dom';
-// import "./style.css";
-
-
-
-
-
-const CreateEventModal = () => (
-	<div className= "createEventDiv">
-		
-	  <h2 className="createH2">Create Event Page!</h2>
-    <Example/>
-       
-	  <p><Link to="/">Head back to home</Link></p>	
-	</div>
-);
-
-
