@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './style.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar/Navbar';
 
 
 export default class SignUp extends Component {
@@ -47,7 +48,7 @@ export default class SignUp extends Component {
     render () { 
         return (
         <div>
-          
+		    <Navbar/>
           <form onSubmit={this.onSubmit}>
           <h3>Sign Up</h3>
             <div className="form-group"> 
