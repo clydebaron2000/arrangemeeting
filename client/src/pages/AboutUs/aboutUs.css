@@ -1,5 +1,5 @@
 .teamPhoto {
-    width: 90px;
+    width: 100px;
     height: 100px;   
 
 }
@@ -17,4 +17,13 @@
 
 .social{
     size: 200px;
+}
+
+
+.aboutusContainer{
+    background-color: whitesmoke;
+    color: #4CB69F;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 20px;
 }
