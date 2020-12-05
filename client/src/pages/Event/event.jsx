@@ -4,6 +4,12 @@ import API from '../../utils/api'
 import EventInfo from '../../components/EventInfo/'
 import CalendarGrid from '../../components/CalendarGrid';
 const EventPage = () => {
+
+ 	const [data,setData]=useState({});
+ 	const [data,setData]=useState({});
+ 	const [data,setData]=useState({});
+	
+
 	const [eventData,setData]=useState({});
 	const [urlending,setUrl]=useState({});
 	const [currentUsername,setCurrentUserName]=useState({});
@@ -49,6 +55,7 @@ const EventPage = () => {
 	const updateData=_=>{
 		API.postEvent(eventData);
 	}
+
 	
 	const handleCalendarChange=calendar_data=>{
 		//update data
