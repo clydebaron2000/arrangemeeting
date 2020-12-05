@@ -9,6 +9,7 @@ const router = require('./routes/apiroutes.js');
 const MongoStore = require('connect-mongo')(session);
 const bodyParser = require('body-parser');
 require('dotenv').config();
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -63,6 +64,18 @@ app.use(passport.session()) // calls serializeUser and deserializeUser
 
 // routes
 app.use(Router);
+
+// Google Strategy
+passport.use(new GoogleStrategy({
+  clientID: process.env.CLIENTID,
+  clientSecret: process.env.CLIENTSECRET,
+  callbackURL: "/auth/google/callback"
+},
+(accessToken, refreshToken, profile, cb) => {
+  console.log(chalk.blue(JSON.stringify(profile)));
+  user = { ...profile };
+  return cb(null, profile);
+}));
 
 
 
