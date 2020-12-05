@@ -11,7 +11,7 @@ import NotFound from './components/NotFound/NotFound';
 import HomePage from './pages/HomePage/HomePage';
 import LogIn from './pages/LogIn/LogIn';
 import SignUp from './pages/SignUp/SignUp';
-import Event from './pages/Event/Event'
+// import Event from './pages/Event/Event'
 import AboutUs from './pages/AboutUs/aboutUs'
 
 
