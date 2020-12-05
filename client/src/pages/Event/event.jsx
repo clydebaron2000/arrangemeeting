@@ -1,56 +1,31 @@
+
+
 import React, {useEffect,useState} from 'react'
 import { Link,Redirect,useParams } from 'react-router-dom'
-import API from '../../utils/api'
-import EventInfo from '../../components/EventInfo/'
-import CalendarGrid from '../../components/CalendarGrid';
-const EventPage = () => {
 
- 	const [data,setData]=useState({});
- 	const [data,setData]=useState({});
- 	const [data,setData]=useState({});
-	
+// import { Link } from 'react-router-dom';
+import EventInfo from '../../components/EventInfo/EventInfo'
+import './styles.css';
+import AvailabilityChooser from '../../components/AvailabilityChooser/AvailabilityChooser';
+import API from '../../utils/API'
+function Demo_page(props){
+    const [eventData,setData]=useState({});
+	const {urlending}=useParams();//exctact the url ending from the location
+	const [url_end,setUrl]=useState(`${urlending}`);
 
-	const [eventData,setData]=useState({});
-	const [urlending,setUrl]=useState({});
 	const [currentUsername,setCurrentUserName]=useState({});
-	const {urlending}=useParams();
-	const fetchDataBy_urlending=(url)=>{
+	const fetchDataBy_urlending=url=>{
 		API.searchByURL(url).then(res=>{
-		console.log(res.status,typeof res.status);
-		if (res.status==400){//if not found
+		if (res.status===400){//if not found
 			return (<Redirect to='/'/>) // go to homepage
 		}
-		//checks of the data
-		const raw_data=res.data;
-		if (raw_data.url_end!=urlending){
-			return (
-				<div>Err: data recieved did not match data fetched`</div>
-			)
+        // console.log('res.body',res.body)
+        const raw_data=res.body;
+		if (eventData!==raw_data){
+			// console.log("data set!")
+			console.log('raw data',raw_data)
+			setData(raw_data);
 		}
-		if (raw_data.name==""||raw_data.name==undefined){
-			return (
-				<div>Err: Event title empty</div>
-			)
-		}
-		const start_time=raw_data.valid_times.start;//number from 0 to 23.5
-		const end_time=raw_data.valid_times.end;//number from 0 to 23.5
-		const num_time_blocks=(end_time-start_time)/.5;
-		if (raw_data.calendar_matrix.length==0){
-			return (
-				<div>Err: calendar_matrix empty</div>
-			)
-		}
-		if (raw_data.calendar_matrix[0].length!=num_time_blocks){
-			return (
-				<div>Err: calendar_matrix does not have appropiate length</div>
-			)
-		}
-		if (typeof(raw_data.valid_dates)!=typeof(new Date())){
-			return (
-			<div>Err: valid_dates does not have appropiate type: {typeof(raw_data.valid_dates)}</div>
-			)
-		}
-		setData(raw_data);//otherwise, set data
 	})}
 	const updateData=_=>{
 		API.postEvent(eventData);
@@ -64,27 +39,30 @@ const EventPage = () => {
 		temp_data.names_list=calendar_data.names_list
 		const new_data=temp_data;
 		setData(new_data);
-	}
-
-	useEffect(()=>{
 		updateData(eventData)
-		fetchDataBy_urlending(urlending)
-	},[eventData]);
-	//first fetch to iniitlaize page
-	fetchDataBy_urlending(urlending)
-	return (
-	<div>
-		{/* TODO: modify EventInfo to accomodate object */}
-		<EventInfo title={eventData.title} description={eventData.description} handleInputChange={null}/>
-		<button id='shareBtn'>Share this event link!</button>
-		<CalendarGrid 
-		valid_dates={eventData.valid_dates}
-		valid_times={eventData.valid_times}
-		calendar_matrix={eventData.calendar_matrix}
-		names_list={eventData.names_list}
-		handleCalendarChange={handleCalendarChange}
-		/>     
-	</div>
-)};
+		fetchDataBy_urlending(url_end)
+	}
+	// first fetch to iniitlaize page
+	fetchDataBy_urlending(url_end)
+	// useEffect(()=>{
+	// 	updateData(eventData)
+	// 	fetchDataBy_urlending(url_end)
+	// },[eventData]);
 
-export default EventPage
+    return (
+        <div>
+					{/* <EventInfo title={eventData.title} description={eventData.description} handleInputChange={null}/> */}
+            <div>Event: {eventData.name}</div>
+            <div>description: {eventData.description}</div>
+        {(eventData.valid_dates!==undefined)?    //to avoid reloading problems
+			<AvailabilityChooser 
+				valid_dates={eventData.valid_dates}
+				valid_times={eventData.valid_times}
+				calendar_matrix={eventData.calendar_matrix}
+				names_list={eventData.names_list}
+				handleCalendarChange={handleCalendarChange}
+			/> :null }
+        </div>
+    )
+}
+    export default Demo_page

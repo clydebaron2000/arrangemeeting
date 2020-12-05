@@ -1,0 +1,11 @@
+.reg {
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ccc;
+  border: 1px solid #fff;
+}
+
+table td.highlighted {
+  background-color: #999;
+}

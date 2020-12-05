@@ -1,0 +1,37 @@
+.dayColumn {
+  width: 100%;
+}
+
+.dayHeader {
+  text-align: center;
+  justify-content: center;
+  padding: 2px;
+  /* height: 42px; */
+}
+
+.dayHeaderContent {
+  display: flex;
+  width: max-content;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.month {
+  display: block;
+  font-size: 10px;
+  padding: 2px;
+}
+
+.dayOfWeek {
+  display: block;
+  font-size: 10px;
+  padding: 2px;
+}
+
+.date {
+  font-size: 15px;
+}
+
+.slots {
+  cursor: pointer;
+}
