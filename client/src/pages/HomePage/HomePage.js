@@ -4,6 +4,7 @@ import './styles.css';
 import Navbar from "../../components/Navbar/Navbar";
 import Login from '../../components/GoogleAuth/login';
 import Logout from '../../components/GoogleAuth/logout';
+import AboutUS from '../AboutUs/aboutUs';
 
 
 
@@ -17,6 +18,7 @@ export default class HomePage extends Component {
 		return (
 
 			<div>
+
 				<Navbar />
 				<div class="header">
 					<h2>Scheduling Simplified</h2>
@@ -52,6 +54,7 @@ export default class HomePage extends Component {
 					<p>ArrangeMeeting </p>
 				</div>
 			</div>
+
 		)
 	}
 }
