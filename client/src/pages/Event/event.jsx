@@ -3,9 +3,9 @@ import { Link,useParams } from 'react-router-dom'
 import API from '../../utils/api'
 
 const EventPage = () => {
-	const [data,setData]=useState({});
-	const [data,setData]=useState({});
-	const [data,setData]=useState({});
+// 	const [data,setData]=useState({});
+// 	const [data,setData]=useState({});
+// 	const [data,setData]=useState({});
 	
 	
 	return (
