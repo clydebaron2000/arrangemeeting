@@ -1,13 +1,13 @@
 import React, {useEffect,useState} from 'react'
 import { Link,Redirect,useParams } from 'react-router-dom'
 import API from '../../utils/api'
-import EventInfo from '../../components/EventInfo/'
-import CalendarGrid from '../../components/CalendarGrid';
+import EventInfo from '../../components/EventInfo/EventInfo'
+import CalendarGrid from '../../components/CalendarGrid/CalendarGrid';
 const EventPage = () => {
 	const [eventData,setData]=useState({});
-	const [urlending,setUrl]=useState({});
 	const [currentUsername,setCurrentUserName]=useState({});
-	const {urlending}=useParams();
+	const {url_end}=useParams();
+	const [urlending,setUrl]=useState(url_end);
 	const fetchDataBy_urlending=(url)=>{
 		API.searchByURL(url).then(res=>{
 		console.log(res.status,typeof res.status);
@@ -71,11 +71,11 @@ const EventPage = () => {
 		<EventInfo title={eventData.title} description={eventData.description} handleInputChange={null}/>
 		<button id='shareBtn'>Share this event link!</button>
 		<CalendarGrid 
-		valid_dates={eventData.valid_dates}
-		valid_times={eventData.valid_times}
-		calendar_matrix={eventData.calendar_matrix}
-		names_list={eventData.names_list}
-		handleCalendarChange={handleCalendarChange}
+			valid_dates={eventData.valid_dates}
+			valid_times={eventData.valid_times}
+			calendar_matrix={eventData.calendar_matrix}
+			names_list={eventData.names_list}
+			handleCalendarChange={handleCalendarChange}
 		/>     
 	</div>
 )};
