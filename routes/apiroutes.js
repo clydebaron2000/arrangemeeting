@@ -69,6 +69,24 @@ router.get('/logged_in', (req, res) => {
     res.send(req.user);
 })
 
+router.get("/auth/google", passport.authenticate("google", {
+    scope: ["profile", "email"]
+}));
+router.get("/auth/google/callback",
+    passport.authenticate("google"),
+    (req, res) => {
+        res.send(req.user);
+    })
+router.get("/auth/logout", (req, res) => {
+    console.log("logging out!");
+    res.send("Logout");
+});
+
+router.get("/user", (req, res) => {
+    console.log("getting user data!");
+    res.send(req.user);
+});
+
 
 //-------------------------------------------
 //EVENT ROUTES ROUTES
@@ -87,27 +105,36 @@ router.post('/api/event', ({
         })
 });
 
-router.get('/api/event/:url_end', ({body, params}, res) => {
+router.get('/api/event/:url_end', ({
+    body,
+    params
+}, res) => {
     db.events.find({
         url_end: params.url_end
-    }) .then(dbEvent => {
+    }).then(dbEvent => {
         res.send(dbEvent)
-    }) .catch(err => {
+    }).catch(err => {
         res.status(400);
     })
 })
 
-router.get('/api/event/:_id', ({body, params}, res) => {
+router.get('/api/event/:_id', ({
+    body,
+    params
+}, res) => {
     db.events.find({
         _id: params._id
-    }) .then(dbEvent => {
+    }).then(dbEvent => {
         res.send(dbEvent)
-    }) .catch(err => {
+    }).catch(err => {
         res.status(400);
     })
 })
 
-router.put('/api/event/:_id', ({body, params}, res) => {
+router.put('/api/event/:_id', ({
+    body,
+    params
+}, res) => {
     db.events.findByIdAndUpdate(body._id, {
         name: body.name,
         description: body.description,
