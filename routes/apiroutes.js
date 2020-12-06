@@ -18,6 +18,19 @@ router.post('/api/user', ({
         })
 });
 
+router.get('/api/user/:email', ({
+    body,
+    params
+}, res) => {
+    db.users.find({
+        email: params.email
+    }).then(dbUser => {
+        res.send(dbUser)
+    }).catch(err => {
+        res.status(400);
+    })
+})
+
 // router.get('/user/:id', ({body, params}, res) => {
 //     db.users.findById(params._id, (error) => {
 //         if(error) throw error;
@@ -83,7 +96,8 @@ router.get("/auth/logout", (req, res) => {
 });
 
 router.get("/user", (req, res) => {
-    console.log("getting user data!");
+    console.log("getting user data!: ", req.param.foo);
+    // console.log("getting user data!: ", req.user);
     res.send(req.user);
 });
 

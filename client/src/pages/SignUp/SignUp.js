@@ -40,6 +40,7 @@ export default class SignUp extends Component {
                 alert('Signup Error');
             }
         }).catch(error => {
+            alert("Email is already in use!");
             console.log('Signup server error: ', error);
         })
     };

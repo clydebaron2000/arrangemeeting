@@ -7,16 +7,36 @@ import Modal from 'react-bootstrap/Modal';
 // import ModalBody from 'react-bootstrap/ModalBody';
 // import ModalFooter from 'react-bootstrap/ModalFooter';
 import Button from 'react-bootstrap/Button';
+import api from '../../utils/api';
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 
 function Modal1() {
   const [show, setShow] = useState(false);
+  const [event, setEvent] = useState({
+    name: "Name your event",
+    description: "",
+    valid_dates: [],
+    valid_times: {
+      start: 0,
+      end: 0
+    },
+    calendar_matrix: [[[]]],
+    url_end: "",
+    created_by: ""
+  })
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleInputChange = event => {
+    setEvent(event.target.value);
+  };
+
   
   const handleSubmit = () => {
-    window.location = '/view';
+    api.postEvent()
   }
 
   return (
@@ -32,10 +52,35 @@ function Modal1() {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Event title</Modal.Title>
+          <Modal.Title>{event.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <input
+                className="form-control"
+                type="text"
+                placeholder="Name of Event"
+                name="name"
+                onChange={e => setEvent({name: e.target.value})}
+              />
+         <p>Descritpion of event</p>
         <textarea id="textareaID" class="form-control"></textarea>
+        <>
+        Select the Start of the Event<br/>
+      {/* <DatePicker
+        selected={startDate}
+        onChange={date => setStartDate(date)}
+        selectsStart
+        startDate={startDate}
+        endDate={endDate}      /><br/>
+      Select the End of the Event<br/>
+      <DatePicker
+        selected={endDate}
+        time
+        onChange={date => setEndDate(date)}
+        selectsEnd
+        startDate={startDate}
+        endDate={endDate}        minDate={startDate}      /> */}
+    </>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
