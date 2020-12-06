@@ -1,6 +1,7 @@
 import React, {useEffect,useState} from 'react'
-import Calendar from '../Calender';
-import NamesList from '../NamesList';
+import Calendar from '../Calender/Calendar';
+import NamesList from '../NamesList/NamesList';
+import Modal from 'react-bootstrap/Modal';
 const CalendarGrid=(props)=>{
     //these won't change
     const valid_dates=props.valid_dates;

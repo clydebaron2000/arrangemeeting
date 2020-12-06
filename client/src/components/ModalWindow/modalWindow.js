@@ -1,14 +1,10 @@
-import React, {useState} from "react";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal';
-// import ModalDialog from 'react-bootstrap/ModalDialog';
-// import ModalHeader from 'react-bootstrap/ModalHeader';
-// import ModalTitle from 'react-bootstrap/ModalTitle';
-// import ModalBody from 'react-bootstrap/ModalBody';
-// import ModalFooter from 'react-bootstrap/ModalFooter';
+import moment from 'moment';
 import Button from 'react-bootstrap/Button';
+import DatePicker from 'react-datepicker';
 import api from '../../utils/api';
-import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
 
@@ -38,6 +34,11 @@ function Modal1() {
   const handleSubmit = () => {
     api.postEvent()
   }
+  const [startDate, setStartDate] = useState(new Date(moment().format('YYYY MM DD')));
+  const [endDate, setEndDate] = useState(new Date(moment().add(7, 'days').format('YYYY MM DD')));
+
+
+
 
   return (
     <>
@@ -52,35 +53,61 @@ function Modal1() {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>{event.name}</Modal.Title>
+          <Modal.Title className="">Create your Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <input
-                className="form-control"
-                type="text"
-                placeholder="Name of Event"
-                name="name"
-                onChange={e => setEvent({name: e.target.value})}
-              />
-         <p>Descritpion of event</p>
-        <textarea id="textareaID" class="form-control"></textarea>
-        <>
-        Select the Start of the Event<br/>
-      {/* <DatePicker
-        selected={startDate}
-        onChange={date => setStartDate(date)}
-        selectsStart
-        startDate={startDate}
-        endDate={endDate}      /><br/>
-      Select the End of the Event<br/>
-      <DatePicker
-        selected={endDate}
-        time
-        onChange={date => setEndDate(date)}
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}        minDate={startDate}      /> */}
-    </>
+          <p style={{ fontWeight: "bold" }}>Name of event</p>
+          <textarea id="textareaID" class=" center-text form-control"></textarea>
+          <p style={{ fontWeight: "bold" }}>Descritpion of event</p>
+          <textarea id="textareaID" class="form-control"></textarea>
+          <><p style={{ fontWeight: "bold" }}>
+            Select the Start of the Event</p>
+            Start:<DatePicker
+              selected={startDate}
+              onChange={date => setStartDate(date)}
+              selectsStart
+              startDate={startDate}
+              endDate={endDate}
+
+
+            /><br />
+            <p style={{ fontWeight: "bold" }}>
+              Select the End of the Event</p>
+            End:<DatePicker
+              selected={endDate}
+              time
+              onChange={date => setEndDate(date)}
+              selectsEnd
+              startDate={startDate}
+              endDate={endDate}
+
+              minDate={startDate}
+
+            />
+            <br /><p style={{ fontWeight: "bold" }}>
+      Select the start time and end time</p>
+      From:<DatePicker
+              selected={startDate}
+              onChange={date => setStartDate(date)}
+
+              showTimeSelect
+              showTimeSelectOnly
+              timeIntervals={15}
+              timeCaption="Time"
+              dateFormat="h:mm aa"
+            /><br />
+     To : <DatePicker
+              selected={startDate}
+              onChange={date => setStartDate(date)}
+
+              showTimeSelect
+              showTimeSelectOnly
+              timeIntervals={15}
+              timeCaption="Time"
+              dateFormat="h:mm aa"
+            />
+
+          </>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -91,8 +118,8 @@ function Modal1() {
       </Modal>
     </>
   );
-}
 
+}
 
 
 export default Modal1;

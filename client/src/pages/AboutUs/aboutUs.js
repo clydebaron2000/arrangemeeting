@@ -5,13 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const AboutUS = () => {
     return (
 
-        <div className="container">
-            <div className="section">
+        
+            <div className="aboutusContainer">
 
-                <h1 className="header center text-team">Arrange Meeting Team</h1>
-                <div className="row center">
-                    <h5 className="header col s12 light">APP creators</h5>
-                </div>
+                <h2 className="header center text-team">Meet Our Team</h2>
+                  {/* <h3 className="header col s12 light"></h3> */}
+                
 
                 <br />
 
@@ -24,8 +23,8 @@ const AboutUS = () => {
                             </div>
                             <div className="card-action">
                             <span className="card-title">Clyde Rapinan</span>
-                                <a href="https://www.linkedin.com/in/clydebaronrapinan/"><i class="fab fa-linkedin fa-3x" /></a>
-                                <a href="https://github.com/clydebaron2000"><i class="fab fa-github fa-3x"></i></a>
+                                <a href="https://www.linkedin.com/in/clydebaronrapinan/"><i className="fab fa-linkedin fa-3x" /></a>
+                                <a href="https://github.com/clydebaron2000"><i className="fab fa-github fa-3x"></i></a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +100,7 @@ const AboutUS = () => {
                     </div>
                 </div>
             </div>
-        </div>
+ 
     )
 }
 

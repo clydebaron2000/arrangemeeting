@@ -1,0 +1,27 @@
+.hide {
+  display: none
+}
+
+.ac-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ac-container {
+  display: block;
+  position: relative;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  min-height: 500;
+}
+
+.ac_grid {
+  display: flex;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ac-content {
+  display: flex;
+}
