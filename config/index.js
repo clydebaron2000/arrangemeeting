@@ -1,6 +1,8 @@
 const passport = require('passport')
 const LocalStrategy = require('./localStrategy')
 const db = require('../models')
+require('dotenv').config();
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 // called on login, saves the id to session req.session.passport.user = {id:'..'}
 passport.serializeUser((user, done) => {
@@ -27,6 +29,18 @@ passport.deserializeUser((id, done) => {
     }
   )
 })
+
+// Google Strategy
+passport.use(new GoogleStrategy({
+  clientID: process.env.CLIENTID,
+  clientSecret: process.env.CLIENTSECRET,
+  callbackURL: "/auth/google/callback"
+},
+(accessToken, refreshToken, profile, cb) => {
+  console.log(chalk.blue(JSON.stringify(profile)));
+  user = { ...profile };
+  return cb(null, profile);
+}));
 
 //  Use Strategies 
 passport.use(LocalStrategy)

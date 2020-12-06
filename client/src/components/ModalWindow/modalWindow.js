@@ -3,18 +3,36 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal';
 import moment from 'moment';
 import Button from 'react-bootstrap/Button';
-import DatePicker from 'react-datepicker'
+import DatePicker from 'react-datepicker';
+import api from '../../utils/api';
 import 'react-datepicker/dist/react-datepicker.css'
 
 
 function Modal1() {
   const [show, setShow] = useState(false);
+  const [event, setEvent] = useState({
+    name: "Name your event",
+    description: "",
+    valid_dates: [],
+    valid_times: {
+      start: 0,
+      end: 0
+    },
+    calendar_matrix: [[[]]],
+    url_end: "",
+    created_by: ""
+  })
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleInputChange = event => {
+    setEvent(event.target.value);
+  };
+
+  
   const handleSubmit = () => {
-    window.location = '/view';
+    api.postEvent()
   }
   const [startDate, setStartDate] = useState(new Date(moment().format('YYYY MM DD')));
   const [endDate, setEndDate] = useState(new Date(moment().add(7, 'days').format('YYYY MM DD')));
