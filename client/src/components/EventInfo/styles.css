@@ -1,0 +1,117 @@
+#event-info {
+  margin-bottom: 10px;
+}
+
+#event-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  text-decoration: none;
+}
+
+.underline {
+  display: block;
+  position: relative;
+  content: " ";
+  width: 100%;
+  height: 5px;
+  margin: 2px auto;
+  background: #4CB69F;
+}
+
+#event-title {
+  font-size: 150%;
+  font-weight: 500;
+}
+
+#event-title-buttons>button {
+  margin: 2px;
+  padding: 3px 10px;
+  border-radius: 7px;
+}
+
+#event-title-buttons>button {
+  background-color: white;
+  border: 1px solid gray;
+}
+
+#event-title-buttons>button:hover {
+  transition: .5s;
+  font-weight: 300;
+  border: 1px solid white;
+  background-color: #FFAB40;
+  color: white
+}
+
+#event-title-buttons>#link-btn {
+  background-color: #4CB69F;
+  color: white;
+  border: 1px solid white;
+  font-weight: 100;
+}
+
+#event-title-buttons>#link-btn:hover {
+  transition: .5s;
+  font-weight: 300;
+  background-color: #FFAB40;
+  color: white
+}
+
+#event-title-buttons>#link-btn:focus {
+  outline: none;
+}
+
+.edit::placeholder {
+  color: white
+}
+
+.edit:placeholder-shown {
+  background-color: rgba(255, 66, 66, 0.815);
+}
+
+.hide {
+  transition: 1s;
+  animation-timing-function: ease-in;
+  animation-duration: 2s;
+  display: none;
+}
+
+
+/* resetting input/textbox css */
+
+input,
+textarea {
+  border: none;
+  resize: none;
+  box-shadow: none;
+}
+
+input:focus,
+textarea:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+#edit-title,
+#edit-desc {
+  /* to make sure the text stays within the page */
+  width: min-content;
+  overflow-wrap: break-word;
+  margin: 2px;
+  border-bottom: solid 2px gray;
+  border-radius: 7px;
+}
+
+#edit-desc {
+  width: 100%
+}
+
+#edit-title:focus,
+#edit-desc:focus {
+  transition: .5s;
+  animation-timing-function: ease-in;
+  border-bottom: solid 2px #4CB69F;
+}
