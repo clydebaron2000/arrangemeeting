@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
 import Navbar from "../../components/Navbar/Navbar";
-import Login from '../../components/GoogleAuth/login';
-import Logout from '../../components/GoogleAuth/logout';
+// import Login from '../../components/GoogleAuth/login';
+// import Logout from '../../components/GoogleAuth/logout';
 import AboutUS from '../AboutUs/aboutUs';
 import img1 from "../../images/tiago-rosado-cMG5qjpnsyg-unsplash.jpg";
 import img2 from "../../images/christina-wocintechchat-com-4PU-OC8sW98-unsplash.jpg";
@@ -46,6 +46,7 @@ export default class HomePage extends Component {
 					<div className="column" >
 						<h3>Share Your Event Link</h3>
 						<div className="card-image">
+							{/* eslint-disable-next-line */}
                                  <img src={img1} ></img>
 								 
                             </div>
@@ -54,6 +55,7 @@ export default class HomePage extends Component {
 					<div className="column" >
 					<h3>Find Availablity</h3>
 					<div className="card-image">
+						{/* eslint-disable-next-line */}
                                  <img src={img2} ></img>
 								 
                             </div>
@@ -63,6 +65,7 @@ export default class HomePage extends Component {
 					<div className="column" >
 					<h3>Schedule Your Meeting</h3>
 					<div className="card-image">
+						{/* eslint-disable-next-line */}
                                  <img src={img3} ></img>
 								 
                             </div>

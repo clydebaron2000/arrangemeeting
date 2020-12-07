@@ -10,6 +10,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 function Modal1() {
   const [show, setShow] = useState(false);
+  //eslint-disable-next-line
   const [event, setEvent] = useState({
     name: "Name your event",
     description: "",
@@ -25,7 +26,7 @@ function Modal1() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+//eslint-disable-next-line
   const handleInputChange = event => {
     setEvent(event.target.value);
   };

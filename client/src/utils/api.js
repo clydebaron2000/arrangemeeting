@@ -2,7 +2,8 @@ import axios from "axios";
 const BASEURL = "/api/";
 export default {
   postUser: function (user) {
-    return axios.post(BASEURL + 'user', {
+    //eslint-disable-next-line
+    return axios.post(BASEURL + 'user',{
       email: user.email,
       password: user.password
     }) .catch(err => {

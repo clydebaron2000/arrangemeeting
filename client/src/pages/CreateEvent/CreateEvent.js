@@ -12,7 +12,7 @@ import axios from 'axios';
 import Example from '../../components/ModalWindow/modalWindow'
 import Navbar from '../../components/Navbar/Navbar';
 import UserProvider from '../../contexts/userProvider';
-import _ from "lodash";
+// import _ from "lodash";
 
 
 
@@ -26,7 +26,7 @@ function CreateEvent() {
 	});
 
     const userData = useContext(UserProvider.context);
-
+//eslint-disable-next-line
 	const handleFormSubmit = event => {
 		event.preventDefault();
 	  };
