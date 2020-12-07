@@ -62,7 +62,7 @@ function Modal1() {
           <p style={{ fontWeight: "bold" }}>Descritpion of event</p>
           <textarea id="textareaID" class="form-control"></textarea>
           <><p style={{ fontWeight: "bold" }}>
-            Select the Start of the Event</p>
+            Select the date range for event availability</p>
             Start:<DatePicker
               selected={startDate}
               onChange={date => setStartDate(date)}
@@ -72,8 +72,7 @@ function Modal1() {
 
 
             /><br />
-            <p style={{ fontWeight: "bold" }}>
-              Select the End of the Event</p>
+            
             End:<DatePicker
               selected={endDate}
               time
@@ -86,24 +85,24 @@ function Modal1() {
 
             />
             <br /><p style={{ fontWeight: "bold" }}>
-      Select the start time and end time</p>
+      Select the time range for event availability</p>
       From:<DatePicker
               selected={startDate}
               onChange={date => setStartDate(date)}
 
               showTimeSelect
               showTimeSelectOnly
-              timeIntervals={15}
+              timeIntervals={30}
               timeCaption="Time"
               dateFormat="h:mm aa"
             /><br />
      To : <DatePicker
-              selected={startDate}
-              onChange={date => setStartDate(date)}
+              selected={endDate}
+              onChange={date => setEndDate(date)}
 
               showTimeSelect
               showTimeSelectOnly
-              timeIntervals={15}
+              timeIntervals={30}
               timeCaption="Time"
               dateFormat="h:mm aa"
             />
