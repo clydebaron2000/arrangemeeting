@@ -13,9 +13,8 @@ export default class Navbar extends Component {
     render() {
         return (
             <nav className="NavbarItems">
-                <a href="/" className="navbar-logo">Link Up <i className="fas fa-link"></i></a>
+                <a href="/" className="navbar-logo">Arrange Meeting <i className="fas fa-link"></i></a>
                 <div className="menu-icon" onClick={this.handleClick}>
-                    {/* <i></i> */}
                     <i className={this.state.active ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
                 {/* If icon above is clicked, set ul tag as active or native */}
