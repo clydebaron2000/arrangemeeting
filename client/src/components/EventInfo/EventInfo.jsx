@@ -3,6 +3,7 @@ import './styles.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPencilAlt,faShareAlt,faSave} from '@fortawesome/free-solid-svg-icons'
 import autosize from 'autosize'
+
 function EventInfo(props){
     const [title,setTitle]=useState(`${props.title}`)
     const [description,setDescription]=useState(`${props.description}`)
@@ -12,7 +13,19 @@ function EventInfo(props){
     const urlending=props.urlending;
     const [tempTitle,setTempTitle]=useState('')
     const [tempDesc,setTempDesc]=useState('')
-    
+    const [shareText,setShareText]=useState('share')
+    const handleShare=_=>{
+        const full_path=window.location.href;
+        console.log('path copied:',full_path)
+        navigator.clipboard.writeText(full_path)
+        tempShareNotif()
+    }
+    const tempShareNotif=_=>{
+        setShareText('Link Copied!')
+        setTimeout(() => {
+            setShareText('share')
+        }, 1000);
+    }
     //setters for input changes
     const handleEdit=_=>setIsEditingTo(true)
     const handleTitleChange=e=>setTempTitle(e.target.value)
@@ -64,8 +77,8 @@ function EventInfo(props){
                         <FontAwesomeIcon icon={faSave}/> save
                     </button>
                     <button className={showEditingElements} id="edit-btn" onClick={handleCancel}>cancel</button>
-                    <button id="link-btn" >
-                        <FontAwesomeIcon icon={faShareAlt}/> share
+                    <button id="link-btn" onClick={handleShare}>
+                        <FontAwesomeIcon icon={faShareAlt}/> {shareText}
                     </button>
                 </div>
             </div>
