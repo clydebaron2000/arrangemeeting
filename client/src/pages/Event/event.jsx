@@ -1,5 +1,6 @@
 import React, {useEffect,useState} from 'react'
 import { Link,Redirect,useParams } from 'react-router-dom'
+
 // import { Link } from 'react-router-dom';
 import EventInfo from '../../components/EventInfo/EventInfo'
 import './styles.css';
@@ -9,6 +10,7 @@ function Demo_page(props){
     const [eventData,setData]=useState({});
 	const {urlending}=useParams();//exctact the url ending from the location
 	const [url_end,setUrl]=useState(`${urlending}`);
+
 	const [currentUsername,setCurrentUserName]=useState({});
 	const fetchDataBy_urlending=url=>{
 		API.searchByURL(url).then(res=>{
@@ -26,6 +28,7 @@ function Demo_page(props){
 	const updateData=_=>{
 		API.postEvent(eventData);
 	}
+
 	
 	const handleCalendarChange=calendar_data=>{
 		//update data

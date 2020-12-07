@@ -1,7 +1,7 @@
 {
-  "name": "PROJECT3",
+  "name": "project3",
   "version": "1.0.0",
-  "description": "",
+  "description": "[https://arrangemeeting.herokuapp.com/](https://arrangemeeting.herokuapp.com/)",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -37,5 +37,13 @@
   },
   "engines": {
     "node": "14.8.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clydebaron2000/arrangemeeting.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clydebaron2000/arrangemeeting/issues"
+  },
+  "homepage": "https://github.com/clydebaron2000/arrangemeeting#readme"
 }
