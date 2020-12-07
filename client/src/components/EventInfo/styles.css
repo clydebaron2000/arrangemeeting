@@ -59,6 +59,10 @@
   color: white
 }
 
+#event-title-buttons>#link-btn:focus {
+  outline: none;
+}
+
 .edit::placeholder {
   color: white
 }
@@ -99,6 +103,10 @@ textarea:focus {
   margin: 2px;
   border-bottom: solid 2px gray;
   border-radius: 7px;
+}
+
+#edit-desc {
+  width: 100%
 }
 
 #edit-title:focus,
