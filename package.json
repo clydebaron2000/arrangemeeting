@@ -1,7 +1,7 @@
 {
-  "name": "PROJECT3",
+  "name": "project3",
   "version": "1.0.0",
-  "description": "",
+  "description": "[https://arrangemeeting.herokuapp.com/](https://arrangemeeting.herokuapp.com/)",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -10,8 +10,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "seed": "node scripts/seedDB.js"
+    "seed": "node scripts/seedDB.js",
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +32,18 @@
     "mongoose": "^5.10.15",
     "node": "^15.2.1",
     "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0"
-  }
+  },
+  "engines": {
+    "node": "14.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clydebaron2000/arrangemeeting.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clydebaron2000/arrangemeeting/issues"
+  },
+  "homepage": "https://github.com/clydebaron2000/arrangemeeting#readme"
 }

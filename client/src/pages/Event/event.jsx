@@ -1,53 +1,82 @@
 import React, {useEffect,useState} from 'react'
 import { Link,Redirect,useParams } from 'react-router-dom'
-import API from '../../utils/api'
-import EventTitle from '../../components/EventTitle/'
-import EventDescription from '../../components/EventDescription/'
-import CalendarGrid from '../../components/CalendarGrid';
-const EventPage = () => {
-	const [eventData,setData]=useState({});
-	const [urlending,setUrl]=useState({});
-	const [currentUsername,setCurrentUserName]=useState({});
-	const {urlending}=useParams();
-	const fetchDataBy_urlending=(url)=>{
+// import { Link } from 'react-router-dom';
+import './styles.css';
+import AvailabilityChooser from '../../components/AvailabilityChooser/AvailabilityChooser';
+import EventInfo from '../../components/EventInfo/EventInfo';
+import API from '../../utils/API'
+function Demo_page(props){
+    const [eventData,setData]=useState({
+		name:'',
+		description:'',
+		calendar_matrix:[]});//default vals
+	const {urlending}=useParams();//exctact the url ending from the location
+	const [url_end,setUrl]=useState(`${urlending}`);
+	// const [currentUsername,setCurrentUserName]=useState({});
+	const fetchDataBy_urlending=url=>{
 		API.searchByURL(url).then(res=>{
-		console.log(res.status,typeof res.status);
-		if (res.status==400){//if not found
+		if (res.status===400){//if not found
 			return (<Redirect to='/'/>) // go to homepage
 		}
-		setData(res.data);//otherwise, set data
+        // console.log('res.body',res.body)
+        const raw_data=res.body;
+		if (eventData!==raw_data){
+			// console.log("data set!")
+			console.log('raw data',raw_data)
+			setData(raw_data);
+		}
 	})}
-	const updateData=_=>{
-		API.postEvent(eventData);
+	const updateData=data=>{
+		API.postEvent(data);
 	}
 	
-	const handleInputChange=event=>{
+	const handleCalendarChange=calendar_data=>{
 		//update data
-		const new_data=null;//TODO: update this
+		let temp_data=eventData;
+		temp_data.calendar_matrix=calendar_data.calendar_matrix
+		temp_data.names_list=calendar_data.names_list
+		const new_data=temp_data;
 		setData(new_data);
 	}
-	useEffect(()=>{
+	const handleInfoChange=obj=>{
+		console.log('infochange')
+		let temp_data=eventData
+		temp_data.name=obj.title;
+		temp_data.description=obj.description;
+		console.log('t',temp_data);
+		setUrl(obj.urlending)
+		setData(temp_data)
+		console.log('e',eventData);
+		update()
+	}
+	// first fetch to iniitlaize page
+	// fetchDataBy_urlending(url_end)
+	const update=_=>{
+		console.log('updating');
 		updateData(eventData)
-		fetchDataBy_urlending(urlending)
-	},[eventData]);
-	//first fetch
-	fetchDataBy_urlending(urlending)
-	
-	
-	return (
-	<div>
-		<EventTitle title={eventData.description}/>
-		<button id='editBtn'>Edit Event</button>
-		<button id='shareBtn'>Share this event link!</button>
-		<EventDescription description={eventData.description}/>
-		<CalendarGrid 
-		valid_dates={eventData.valid_dates}
-		valid_times={eventData.valid_times}
-		calendar_matrix={eventData.calendar_matrix}
-		names_list={eventData.names_list}
-		handleInputChange={handleInputChange}
-		/>     
-	</div>
-)};
+		fetchDataBy_urlending(url_end)
+		console.log('recived',eventData)
+	}
+	useEffect(update,[eventData,url_end]);
 
-// export default EventPage
+    return (
+        <div className="pageContent">
+            {(eventData.valid_dates!==undefined)?<EventInfo
+			title={eventData.name}
+			description={eventData.description}
+			urlending={url_end}
+			handleInfoChange={handleInfoChange}
+			/>:null
+			}
+        {(eventData.valid_dates!==undefined)?    //to avoid reloading problems
+			<AvailabilityChooser 
+				valid_dates={eventData.valid_dates}
+				valid_times={eventData.valid_times}
+				calendar_matrix={eventData.calendar_matrix}
+				names_list={eventData.names_list}
+				handleCalendarChange={handleCalendarChange}
+			/> :null }
+        </div>
+    )
+}
+    export default Demo_page

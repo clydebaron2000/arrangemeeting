@@ -1,0 +1,14 @@
+#ac_grid {
+  display: flex;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.calendarTable {
+  width: -webkit-fill-available
+}
+
+#timeLabelColumn {
+  font-size: 11;
+  float: left
+}

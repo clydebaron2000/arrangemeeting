@@ -1,5 +1,34 @@
-.teamPhoto {
-    width: 80px;
-    height: 100px
+.aboutusContainer>header {
+  padding: 5px;
+  margin: 0;
+}
 
+.teamPhoto {
+  width: 100px;
+  height: 100px;
+}
+
+.card-action {
+  float: left;
+  padding: 15px;
+}
+
+.card {
+  width: 150px;
+}
+
+.social {
+  size: 200px;
+}
+
+.card-title>i {
+  color: black
+}
+
+.aboutusContainer {
+  background-color: whitesmoke;
+  color: #4CB69F;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding: 20px;
 }

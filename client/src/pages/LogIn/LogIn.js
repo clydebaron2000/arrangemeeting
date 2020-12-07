@@ -3,6 +3,7 @@ import './style.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
+import GoogleLogin from '../../components/GoogleAuth/login';
 
 export default class SignUp extends Component {
 
@@ -73,10 +74,12 @@ export default class SignUp extends Component {
                   onChange={this.handleInputChange}
                   />
             </div>
+
     
             <div className="form-group">
               <input type="submit" value="Login" className="btn btn-secondary" />
             </div>
+            <GoogleLogin />
           </form>
           <p><Link to="/">Head back to home</Link></p>
         </div>
