@@ -2,10 +2,16 @@ import axios from "axios";
 const BASEURL = "/api/";
 export default {
   postUser: function (user) {
-    return axios.post(BASEURL + 'user', {
+    //eslint-disable-next-line
+    return axios.post(BASEURL + 'user',{
       email: user.email,
       password: user.password
+    }) .catch(err => {
+      console.log("Error in utils: ",err);
     })
+  },
+  searchUser: function (query) {
+    return axios.get(BASEURL + 'user/' + query);
   },
   searchByURL: function (query) {
     return axios.get(BASEURL + "event/" + query);

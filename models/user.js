@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
-    default: ""
+    default: "",
+    unique: true
   },
   password: {
     type: String,
@@ -23,6 +24,7 @@ userSchema.methods = {
 }
 
 userSchema.pre('save', function (next) {
+  // if (!this.password) {
   if (!this.password) {
     console.log('models/user.js =======NO PASSWORD PROVIDED=======');
     next();

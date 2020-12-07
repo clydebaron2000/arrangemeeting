@@ -18,6 +18,7 @@ const AboutUS = () => {
                     <div className="col s3">
                         <div className="card text-center">
                             <div className="card-image">
+                                {/* eslint-disable-next-line */}
                                 <img src="https://avatars3.githubusercontent.com/u/20262899?s=460&u=390ab79f81706a983d393fe623c0fa86bfb22d1b&v=4" className="teamPhoto" alt="Image of Clyde" />
                                 
                             </div>
@@ -32,6 +33,7 @@ const AboutUS = () => {
                     <div className="col s3">
                         <div className="card text-center">
                             <div className="card-image">
+                                {/* eslint-disable-next-line */}
                                 <img src="https://avatars0.githubusercontent.com/u/63487094?s=460&u=86927beb4a1b6ac2b54bb42188cc5c2a8af58f9a&v=4" className="teamPhoto" alt="Image of King" />
                                 
                             </div>
@@ -46,6 +48,7 @@ const AboutUS = () => {
                     <div className="col s3">
                         <div className="card text-center">
                             <div className="card-image">
+                                {/* eslint-disable-next-line */}
                                 <img src="https://patches9119.github.io/responsive-portfolio/assets/chuckeshoops.jpg" className="teamPhoto" alt="Image of Patrick" />
                                 
                             </div>
@@ -60,6 +63,7 @@ const AboutUS = () => {
                     <div className="col s3">
                         <div className="card text-center">
                             <div className="card-image">
+                                {/* eslint-disable-next-line */}
                                 <img src="https://avatars2.githubusercontent.com/u/67287151?s=460&u=8415b7379cd71c7b9262f70bcbc7c33a0ac5593e&v=4" className="teamPhoto" alt="Image of Mariella" />
                                 
                             </div>
@@ -74,6 +78,7 @@ const AboutUS = () => {
                     <div className="col s3">
                         <div className="card text-center">
                             <div className="card-image">
+                                {/* eslint-disable-next-line */}
                                 <img src="https://media-exp1.licdn.com/dms/image/C5603AQEQ160-Uw_vmw/profile-displayphoto-shrink_200_200/0?e=1607558400&v=beta&t=ZTkFqbF4g2fBmva4TAww3eNLE4TkNrL7GAE3wqmWmlc" className="teamPhoto" alt="Robert Graham" />
                                 
                             </div>
