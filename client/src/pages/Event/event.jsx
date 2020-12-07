@@ -1,5 +1,3 @@
-
-
 import React, {useEffect,useState} from 'react'
 import { Link,Redirect,useParams } from 'react-router-dom'
 
