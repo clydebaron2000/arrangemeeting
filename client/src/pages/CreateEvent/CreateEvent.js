@@ -39,10 +39,8 @@ function CreateEvent() {
 			console.log("Check Login Success: ", res);
 			if(res.data._id) {
 				setPageState({loggedIn: true, loading: false});
-			} else if(false) {
-
 			} else {
-				// setPageState({loggedIn: false, loading: false});
+				setPageState({loggedIn: false, loading: false});
 			}
 		})
 		.catch(err => {
