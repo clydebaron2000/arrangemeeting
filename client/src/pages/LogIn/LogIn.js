@@ -55,7 +55,7 @@ export default class SignUp extends Component {
           <form onSubmit={this.onSubmit}>
           <h3>Login</h3>
             <div className="form-group"> 
-              <label>Email: </label>
+              <label>Username: </label>
               <input  type="text"
                   required
                   name="email"
