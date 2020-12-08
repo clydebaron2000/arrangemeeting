@@ -10,8 +10,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "seed": "node scripts/seedDB.js"
+    "seed": "node scripts/seedDB.js",
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -34,6 +34,9 @@
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0"
+  },
+  "engines": {
+    "node": "14.8.0"
   },
   "repository": {
     "type": "git",

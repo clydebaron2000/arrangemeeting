@@ -1,19 +1,18 @@
-
-
 import React, {useEffect,useState} from 'react'
 import { Link,Redirect,useParams } from 'react-router-dom'
-
 // import { Link } from 'react-router-dom';
-import EventInfo from '../../components/EventInfo/EventInfo'
 import './styles.css';
 import AvailabilityChooser from '../../components/AvailabilityChooser/AvailabilityChooser';
+import EventInfo from '../../components/EventInfo/EventInfo';
 import API from '../../utils/API'
 function Demo_page(props){
-    const [eventData,setData]=useState({});
+    const [eventData,setData]=useState({
+		name:'',
+		description:'',
+		calendar_matrix:[]});//default vals
 	const {urlending}=useParams();//exctact the url ending from the location
 	const [url_end,setUrl]=useState(`${urlending}`);
-
-	const [currentUsername,setCurrentUserName]=useState({});
+	// const [currentUsername,setCurrentUserName]=useState({});
 	const fetchDataBy_urlending=url=>{
 		API.searchByURL(url).then(res=>{
 		if (res.status===400){//if not found
@@ -27,10 +26,9 @@ function Demo_page(props){
 			setData(raw_data);
 		}
 	})}
-	const updateData=_=>{
-		API.postEvent(eventData);
+	const updateData=data=>{
+		API.postEvent(data);
 	}
-
 	
 	const handleCalendarChange=calendar_data=>{
 		//update data
@@ -39,21 +37,37 @@ function Demo_page(props){
 		temp_data.names_list=calendar_data.names_list
 		const new_data=temp_data;
 		setData(new_data);
-		updateData(eventData)
-		fetchDataBy_urlending(url_end)
+	}
+	const handleInfoChange=obj=>{
+		console.log('infochange')
+		let temp_data=eventData
+		temp_data.name=obj.title;
+		temp_data.description=obj.description;
+		console.log('t',temp_data);
+		setUrl(obj.urlending)
+		setData(temp_data)
+		console.log('e',eventData);
+		update()
 	}
 	// first fetch to iniitlaize page
-	fetchDataBy_urlending(url_end)
-	// useEffect(()=>{
-	// 	updateData(eventData)
-	// 	fetchDataBy_urlending(url_end)
-	// },[eventData]);
+	// fetchDataBy_urlending(url_end)
+	const update=_=>{
+		console.log('updating');
+		updateData(eventData)
+		fetchDataBy_urlending(url_end)
+		console.log('recived',eventData)
+	}
+	useEffect(update,[eventData,url_end]);
 
     return (
-        <div>
-					{/* <EventInfo title={eventData.title} description={eventData.description} handleInputChange={null}/> */}
-            <div>Event: {eventData.name}</div>
-            <div>description: {eventData.description}</div>
+        <div className="pageContent">
+            {(eventData.valid_dates!==undefined)?<EventInfo
+			title={eventData.name}
+			description={eventData.description}
+			urlending={url_end}
+			handleInfoChange={handleInfoChange}
+			/>:null
+			}
         {(eventData.valid_dates!==undefined)?    //to avoid reloading problems
 			<AvailabilityChooser 
 				valid_dates={eventData.valid_dates}
