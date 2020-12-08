@@ -17,10 +17,10 @@ const eventSchema = new mongoose.Schema({
   //int saved as military time
   valid_times: {
     start: {
-      type: Number
+      type: Date
     },
     end: {
-      type: Number
+      type: Date
     }
   },
   calendar_matrix: [[[]]],
