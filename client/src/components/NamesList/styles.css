@@ -1,0 +1,48 @@
+@media(max-width:767px) {
+  .namesCol {
+    min-width: 100%
+  }
+}
+
+.namesList {
+  width: fit-content;
+  margin-left: 15px;
+}
+
+.namesList>.header {
+  width: 150px;
+  font-weight: 500;
+  font-size: medium;
+  user-select: none;
+}
+
+.namesList>.line {
+  height: 2px;
+  background-color: #4cb69f;
+}
+
+.namesList>.list {
+  padding: 5px;
+}
+
+.namesList>.list>button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.namesList>.list>div:hover {
+  background: none;
+  border: none;
+  color: #4cb69f;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+  user-select: none;
+}
+
+.crossOut {
+  color: gray;
+  text-decoration: line-through;
+}
