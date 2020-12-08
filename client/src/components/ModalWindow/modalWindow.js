@@ -37,6 +37,9 @@ function Modal1() {
   }
   const [startDate, setStartDate] = useState(new Date(moment().format('YYYY MM DD')));
   const [endDate, setEndDate] = useState(new Date(moment().add(7, 'days').format('YYYY MM DD')));
+  
+  const [startTime, setStartTime] = useState(new Date(moment().startOf('hour')));
+  const [endTime, setEndTime] = useState(new Date(moment().endOf('hour').add(1,"minutes")));
 
 
 
@@ -87,8 +90,8 @@ function Modal1() {
             <br /><p style={{ fontWeight: "bold" }}>
       Select the time range for event availability</p>
       From:<DatePicker
-              selected={startDate}
-              onChange={date => setStartDate(date)}
+              selected={startTime}
+              onChange={time => setStartTime(time)}
 
               showTimeSelect
               showTimeSelectOnly
@@ -97,15 +100,17 @@ function Modal1() {
               dateFormat="h:mm aa"
             /><br />
      To : <DatePicker
-              selected={endDate}
-              onChange={date => setEndDate(date)}
+              selected={endTime}
+              onChange={date => setEndTime(date)}
 
               showTimeSelect
               showTimeSelectOnly
               timeIntervals={30}
               timeCaption="Time"
               dateFormat="h:mm aa"
+              
             />
+            
 
           </>
         </Modal.Body>
@@ -114,6 +119,7 @@ function Modal1() {
             Close
           </Button>
           <Button variant="primary" onClick={handleSubmit}>Create</Button>
+          
         </Modal.Footer>
       </Modal>
     </>
