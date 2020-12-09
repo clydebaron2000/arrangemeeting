@@ -12,7 +12,7 @@ import HomePage from './pages/HomePage/HomePage';
 import LogIn from './pages/LogIn/LogIn';
 import SignUp from './pages/SignUp/SignUp';
 import UserProvider from "./contexts/userProvider";
-import Event from './pages/Event/Event'
+import Event from './pages/Event/event'
 import AboutUs from './pages/AboutUs/aboutUs'
 
 

@@ -1,9 +1,9 @@
 import React, {useEffect,useState} from 'react'
 import { Redirect,useParams } from 'react-router-dom'
-import './styles.css';
+// import './styles.css';
 import AvailabilityChooser from '../../components/AvailabilityChooser/AvailabilityChooser';
 import EventInfo from '../../components/EventInfo/EventInfo';
-import API from '../../utils/API'
+import API from '../../utils/api'
 function Demo_page(props){
     const [eventData,setData]=useState({
 		name:'',

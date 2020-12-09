@@ -96,7 +96,7 @@ const AboutUS = () => {
                                 <img src="https://media-exp1.licdn.com/dms/image/C5603AQHzraMTFMbo3w/profile-displayphoto-shrink_400_400/0?e=1612396800&v=beta&t=Xz8EdudwwL1jeoUuiZJFzZGAoCeVvBTBi14-GFTi4XY" className="teamPhoto" alt="Robert Graham" />
                                 
                             </div>
-                            <div className="card-action">
+                            <div className="card-action aboutUsCard">
                             <span className="card-title">Johnny Lieu</span>
                                 <a href="https://www.linkedin.com/in/johnny-lieu/"><i class="fab fa-linkedin fa-3x" /></a>
                                 <a href="https://github.com/johnnylieu"><i class="fab fa-github fa-3x"></i></a>
