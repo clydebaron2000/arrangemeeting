@@ -31,7 +31,7 @@ function App() {
           <UserProvider>
             <Route path="/create" exact component={CreateEvent} />
             <Route path="/event/:urlending" exact component={Event} />
-            <Route path = "/*" component={NotFound} />
+            {/* <Route component={NotFound} /> */}
           </UserProvider>
         </Switch>
       </main>
