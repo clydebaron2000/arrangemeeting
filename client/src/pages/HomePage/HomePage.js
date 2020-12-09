@@ -17,26 +17,20 @@ export default class HomePage extends Component {
 	render() {
 		return (
 
-			<div>
+			<div className="homepagebody">
 
 				<Navbar />
-				<div className="header">
-					<h2>Scheduling Simplified</h2>
+				<div className="homeheader">
+					<h2>Scheduling is now simplified...</h2>
 
-					<p>Do you have trouble finding a time when all your friends can meet? 
-						 Well ArrangeMeeting is here to help you coordinate when you are all available! 
-						 Simply create a new event and ask everyone to fill out the calendar with times they are free.
+					<p>Do you have trouble finding a time when all your friends can meet?
+					Well ArrangeMeeting is here to help you coordinate when you are all available!
+					Simply create a new event and ask everyone to fill out the calendar with times they are free.
 						 We will give you the time options that line up with the openings in everyone's schedules. </p>
 
 					<p><Link to="/logIn" className="LoginButton">Arrange Your Meeting!</Link></p>
 
 				</div>
-				  {/* <div class="row2">
-					 <p>Do you have trouble finding a time when all your friends can meet? 
-						 Well ArrangeMeeting is here to help you coordinate when you are all available! 
-						 Simply create a new event and ask everyone to fill out the calendar with times they are free.
-						 We will give you the time options that line up with the openings in everyone's schedules. </p>
-				 </div>  */}
 
 				<div className="row">
 					<div className="column" >
@@ -49,6 +43,7 @@ export default class HomePage extends Component {
                             </div>
 						<p>We make it easy to share your event with your friends!</p>
 					</div>
+
 					<div className="column" >
 					<h3>Find Availablity</h3>
 					<div className="card-image">
@@ -73,15 +68,16 @@ export default class HomePage extends Component {
 				</div>
 
 				<div className="row2">
-					 <h2>Let us help you!</h2>
-					 <p><Link to="/logIn" className="LoginButton">Arrange Your Meeting!</Link></p>
+					<h2>Let us help you today!</h2>
+					<p><Link to="/logIn" className="LoginButton">Arrange Your Meeting!</Link></p>
 
-					 <AboutUS></AboutUS>
-				 </div>
+				</div>
 
-				{/* <div className="footer">
+				<AboutUS></AboutUS>
+
+				<div className="homefooter">
 					<p>ArrangeMeeting </p>
-				</div> */}
+				</div>
 			</div>
 
 		)
