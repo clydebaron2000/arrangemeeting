@@ -8,6 +8,7 @@ const root = require('./');
 const router = require('./routes/apiroutes.js');
 const MongoStore = require('connect-mongo')(session);
 const bodyParser = require('body-parser');
+const path = require('path')
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3001;
