@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import './styles.css';
 function OutlineBox(props){
     return(
-    <div class='hourblock'>{props.content}</div>
+    <div className='hourblock'></div>
     )
 }
 export default OutlineBox

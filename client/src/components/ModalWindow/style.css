@@ -1,0 +1,18 @@
+.modalButton {
+    background-color:  #FFAB40;
+    color:white;
+}
+
+.modalTitle {
+    text-align: center;
+    float: right;
+}
+
+.modalHeader {
+    background-color: #4cb69f;
+    text-align: center;
+}
+.modalCloseBtn {
+    background-color:  #FFAB40;
+    color:white;
+}
