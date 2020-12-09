@@ -2,7 +2,7 @@
 
 ## Summary
 
-This is the start of a website about me, my portfolio and contact info.
+Arrange meeting description placeholder.
 
 [https://arrangemeeting.herokuapp.com/](https://arrangemeeting.herokuapp.com/)
 
