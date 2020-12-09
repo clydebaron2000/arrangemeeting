@@ -12,7 +12,9 @@ import axios from 'axios';
 import Example from '../../components/ModalWindow/modalWindow'
 import Navbar from '../../components/Navbar/Navbar';
 import UserProvider from '../../contexts/userProvider';
-import img4 from "../../images/moduleExample.png";
+import img4 from "../../images/calendar.jpg";
+import img5 from "../../images/christin-hume-mfB1B1s4sMc-unsplash.jpg";
+import img6 from "../../images/bantersnaps-5U_28ojjgms-unsplash.jpg";
 
 
 
@@ -34,36 +36,22 @@ function CreateEvent() {
 	useEffect(() => {
 		console.log(userData);
 		axios.get("/logged_in", { withCredentials: true })
-			.then(res => {
-				console.log("Check Login Success: ", res);
-				if (res.data._id) {
-					setPageState({ loggedIn: true, loading: false });
-				} else if (false) {
-
-				} else {
-					// setPageState({loggedIn: false, loading: false});
-				}
-			})
-			.catch(err => {
-				console.log("Check Login Error: ", err);
-			})
+		.then(res => {
+			console.log("Check Login Success: ", res);
+			if(res.data._id) {
+				setPageState({loggedIn: true, loading: false});
+			} else {
+				setPageState({loggedIn: false, loading: false});
+			}
+		})
+		.catch(err => {
+			console.log("Check Login Error: ", err);
+		})
 	}, []);
 
 
 	return (
-		// <div>
-		// 	<Navbar />
-
-		// 	<div className= "createEventDiv">
-		// 		<h2 className="createH2">Create Event Page</h2>
-		// 		<Example/>
-		// 	</div>
-
-		// 	<h2>Welcome to Arrange Meeting!</h2>
-		// 	{pageState.loading === true ? <h1>loading</h1> : pageState.loggedIn ? <h1> logged in </h1> : <Redirect to = {{pathname: "/logIn"}} /> }
-		// 	<p><Link to="/">Head Back to Home</Link></p>
-		// </div>
-
+		
 		<div>
 
 			<Navbar />
@@ -91,7 +79,7 @@ function CreateEvent() {
 				<div className="column" >
 					<h3>Find Availablity</h3>
 					<div className="card-image">
-						<i class="fas fa-image"></i>{/*image of blank calendar*/}
+					<img className= "createImage" src={img5} ></img>
 					</div>
 					<p>Coordinate with your friends to find when everyone is free!</p>
 				</div>
@@ -99,7 +87,7 @@ function CreateEvent() {
 				<div className="column" >
 					<h3>Schedule Your Meeting</h3>
 					<div className="card-image">
-						<i class="fas fa-image    "></i>{/* image of final calendar higlighted squares*/}
+					<img className= "createImage" src={img6} ></img>
 
 					</div>
 					<p>Finalize a when and where with all your friends so everyone can come!</p>

@@ -40,7 +40,7 @@ export default class SignUp extends Component {
                 alert('Signup Error');
             }
         }).catch(error => {
-            alert("Email is already in use!");
+            alert("Username is already in use!");
             console.log('Signup server error: ', error);
         })
     };
@@ -53,7 +53,7 @@ export default class SignUp extends Component {
           <form onSubmit={this.onSubmit}>
           <h3>Sign Up</h3>
             <div className="form-group"> 
-              <label>Email: </label>
+              <label>Username: </label>
               <input  type="text"
                   required
                   name="email"
