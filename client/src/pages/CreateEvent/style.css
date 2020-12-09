@@ -1,14 +1,14 @@
 .createEventDiv {
-    margin: auto;
+  margin: auto;
 }
 
 .createH2 {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: lightseagreen;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightseagreen;
 }
 
 form {
-    margin: 200px;
+  margin: 200px;
 }
