@@ -2,7 +2,7 @@ import React, {useEffect,useState} from 'react'
 import CalendarTable from '../CalenderTable/CalenderTable';
 import NamesList from '../NamesList/NamesList'
 import './styles.css';
-import AvailabilityContext from '../../utils/availabilityContext';
+// import AvailabilityContext from '../../utils/availabilityContext';
 import {Modal} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const AvailabilityChooser=(props)=>{
