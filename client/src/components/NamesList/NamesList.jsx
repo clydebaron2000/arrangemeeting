@@ -5,8 +5,10 @@ function NamesList(props){
     const [filteredNamesList,setFilteredNamesList]=useState(props.filteredNamesList);
     const [fraction,setFractionString]=useState('')
     useEffect(_=>{
-        if (filteredNamesList===undefined||filteredNamesList===null)
+        if (filteredNamesList===undefined||filteredNamesList===null) {
             setFilteredNamesList(namesList)
+            return;
+        }
         let l=namesList.length;
         let f=filteredNamesList.length;
         console.log(f,l,)

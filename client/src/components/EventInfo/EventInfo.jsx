@@ -36,9 +36,13 @@ function EventInfo(props){
     //button handlers for submission form
     const handleConfirm=_=>{
         if(tempTitle!==""&&tempDesc!==""){//if not empty
+            console.log("TempTitle:",tempTitle);
+            console.log("Temp Description:",tempDesc);
             setIsEditingTo(false)
             setTitle(tempTitle)
             setDescription(tempDesc)//trigger submission effect
+            console.log("Title:",title);
+            console.log("Description:",description);
         }
     }
     const handleCancel=_=>{
@@ -54,6 +58,7 @@ function EventInfo(props){
         else{
             showDefault('')
             showEditing('hide')
+            
         }
     },[isEditing])
     useEffect(_=>{//submission block
@@ -62,6 +67,7 @@ function EventInfo(props){
             description:description,
             urlending:urlending
         }
+        console.log("Submission: ",submissionObj);
         props.handleInfoChange(submissionObj)
     },[title,description,urlending]);
     return(
