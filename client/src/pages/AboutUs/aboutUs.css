@@ -1,34 +1,104 @@
-.aboutusContainer>header {
+/* .aboutusContainer, header {
   padding: 5px;
   margin: 0;
-}
+} */
 
 .teamPhoto {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+}
+
+.aboutusContainer {
+  background-color: whitesmoke;
+  color: #4CB69F;
+  margin: 10px;
+  padding: 0;
+  box-shadow: 2px 2px 18px #888888;
+
+}
+
+.team-row {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.col {
+  margin: 10px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image {
+  /* justify-content: center; */
+  padding: 0;
+  margin: 0;
 }
 
 .card-action {
   float: left;
-  padding: 15px;
-}
-
-.card {
-  width: 150px;
-}
-
-.social {
-  size: 200px;
+  /* padding: 15px; */
 }
 
 .card-title>i {
   color: black
 }
 
-.aboutusContainer {
-  background-color: whitesmoke;
-  color: #4CB69F;
-  margin-right: 50px;
-  margin-left: 50px;
-  padding: 20px;
+.fa-github, .fa-linkedin {
+  margin: 10px;
+}
+
+.fa-linkedin  {
+  color: #0a66c2;
+}
+
+.fa-github {
+  color: #212528
+}
+
+.container > h2 {
+  font-size: 28px;
+  margin: 0;
+  padding: 10px;
+}
+
+.title {
+  color: #473e3f;
+}
+
+.about-us, .about-position {
+  
+  margin: 0;
+  padding: 0;
+}
+
+.about-position, .about-me {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.about-me {
+  font-size: 16px;
+  width: 40%;
+}
+
+@media screen and (max-width: 1216px) {
+  .team-row {
+    grid-template-columns: repeat(2, auto);
+  }
 }
