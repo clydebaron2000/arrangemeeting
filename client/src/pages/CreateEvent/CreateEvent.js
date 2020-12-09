@@ -56,8 +56,10 @@ function CreateEvent() {
 		<div className="createEventbody">
 
 			<Navbar />
+
 			<div className="createheader">
 				<h2>Welcome, you are now signed in</h2>
+
 
 				<p>
 					Simply create a new event and ask everyone to fill out the calendar with times they are free.
