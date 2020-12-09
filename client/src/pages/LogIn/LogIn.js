@@ -52,14 +52,14 @@ export default class SignUp extends Component {
         
         <div>
             <Navbar/>
-          <form onSubmit={this.onSubmit}>
-          <h3>Login</h3>
+          <form className="login-form" onSubmit={this.onSubmit}>
+          <h3 className="login-heading">Login</h3>
             <div className="form-group"> 
               <label>Username: </label>
               <input  type="text"
                   required
                   name="email"
-                  className="form-control"
+                  className="form-control username-login-input"
                   value={this.state.email}
                   onChange={this.handleInputChange}
                   />
@@ -69,7 +69,7 @@ export default class SignUp extends Component {
               <input  type="password"
                   required
                   name="password"
-                  className="form-control"
+                  className="form-control password-login-input"
                   value={this.state.password}
                   onChange={this.handleInputChange}
                   />
@@ -77,7 +77,7 @@ export default class SignUp extends Component {
 
     
             <div className="form-group">
-              <input type="submit" value="Login" className="btn btn-secondary" />
+              <input type="submit" value="Login" className="submitBtn btn btn-secondary" />
             </div>
             <GoogleLogin />
           </form>

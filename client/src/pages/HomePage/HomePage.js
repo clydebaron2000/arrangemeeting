@@ -43,6 +43,7 @@ export default class HomePage extends Component {
 						<h3>Share Your Event Link</h3>
 						<div className="card-image">
 							{/* eslint-disable-next-line */}
+				 				{/* Images are under a createImage class */}
                                  <img src={img1} ></img>
 								 
                             </div>
@@ -52,6 +53,7 @@ export default class HomePage extends Component {
 					<h3>Find Availablity</h3>
 					<div className="card-image">
 						{/* eslint-disable-next-line */}
+				 				{/* Images are under a createImage class */}
                                  <img src={img2} ></img>
 								 
                             </div>
@@ -62,6 +64,7 @@ export default class HomePage extends Component {
 					<h3>Schedule Your Meeting</h3>
 					<div className="card-image">
 						{/* eslint-disable-next-line */}
+				 				{/* Images are under a createImage class */}
                                  <img src={img3} ></img>
 								 
                             </div>

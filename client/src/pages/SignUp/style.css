@@ -1,4 +1,4 @@
-h3{
+.signup-heading{
     /* width: 250px;
     padding: 50px; */
     margin: 20px;
@@ -7,15 +7,15 @@ h3{
     font-size: 24px;
 }
 
-input{
-    width: 250px;
+.username-input, .password-input{
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     
-  }
+}
 
-  input[type=submit] {
+.submitBtn {
     display: inline-block;
     padding: 5px 10px;
     border: solid 1px;
@@ -25,21 +25,19 @@ input{
     font-size: 18px;
     color: black;
     background-color: yellow;
-    
 
+}
 
-  }
-
-  input[type=submit]:hover{
-
+.submitBtn:hover{
     background-color: lightblue;
-  }
+}
   
- form{
+.signup-form{
     background-color: whitesmoke;
     width: 500px;
     padding: 50px;
-    margin: 20px 150px;
+    margin: 20px;
     text-align: center;
+    display: inline-block;
     
-  }
+}
