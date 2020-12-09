@@ -51,6 +51,7 @@ function CreateEvent() {
 
 
 	return (
+
 		
 		<div>
 
@@ -102,6 +103,7 @@ function CreateEvent() {
 			<div className="footer">
 				<p>ArrangeMeeting </p>
 			</div>
+			{pageState.loading === true ? <h1> </h1> : pageState.loggedIn ? <h1> </h1> : <Redirect to = {{pathname: "/logIn"}} /> }
 		</div>
 	);
 }

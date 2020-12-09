@@ -14,10 +14,6 @@ import img3 from "../../images/stil-flRm0z3MEoA-unsplash.jpg";
 
 export default class HomePage extends Component {
 
-	handleClick() {
-
-	}
-
 	render() {
 		return (
 
@@ -74,14 +70,15 @@ export default class HomePage extends Component {
 				</div>
 
 				<div className="row2">
-					 {/* <h2>Let us help you!</h2> */}
-					 <AboutUS></AboutUS>
+					 <h2>Let us help you!</h2>
 					 <p><Link to="/logIn" className="LoginButton">Arrange Your Meeting!</Link></p>
+
+					 <AboutUS></AboutUS>
 				 </div>
 
-				<div className="footer">
+				{/* <div className="footer">
 					<p>ArrangeMeeting </p>
-				</div>
+				</div> */}
 			</div>
 
 		)

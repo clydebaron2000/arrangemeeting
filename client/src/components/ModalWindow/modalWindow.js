@@ -56,21 +56,27 @@ function Modal1() {
       for(var j = 0; j <= (-1 * ((startDate.getTime() - endDate.getTime()) / (1000 * 3600 * 24))); j++) {
         dates.push(new Date(moment(startDate).add(j, 'days').format('YYYY MM DD')));
       }
-
       //set up times object
       var tempStartTime = new Date(moment(startDate));
       tempStartTime.setHours(startTime.getHours());
       var tempEndTime = new Date(moment(startDate));
       tempEndTime.setHours(endTime.getHours());
-
+      
+      let flag = [[]];
+      let end = tempEndTime;
+      let start = tempStartTime;
+      let time_block = 30*60000;
+      console.log("End-Start: ",((end-start)/6000));
+      let tempArray = [...Array(dates.length)].map(_ => [...Array(parseInt((end - start) / time_block))].map(_ => []));
 
       event.url_end = result;
       event.valid_dates = dates;
       event.valid_times.start = tempStartTime;
       event.valid_times.end = tempEndTime;
+      event.calendar_matrix = tempArray;
       console.log(event);
       api.postEvent(event);
-      window.location = '/events/' + result;
+      window.location = '/event/' + result;
     }
   }
   const [startDate, setStartDate] = useState(new Date(moment().format('YYYY MM DD')));
