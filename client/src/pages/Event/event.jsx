@@ -1,10 +1,10 @@
 import React, {useEffect,useState} from 'react'
 import { Link,Redirect,useParams } from 'react-router-dom'
 // import { Link } from 'react-router-dom';
-import './styles.css';
+import './style.css';
 import AvailabilityChooser from '../../components/AvailabilityChooser/AvailabilityChooser';
 import EventInfo from '../../components/EventInfo/EventInfo';
-import API from '../../utils/API'
+import API from '../../utils/api'
 function Demo_page(props){
     const [eventData,setData]=useState({
 		name:'',
@@ -12,6 +12,7 @@ function Demo_page(props){
 		calendar_matrix:[]});//default vals
 	const {urlending}=useParams();//exctact the url ending from the location
 	const [url_end,setUrl]=useState(`${urlending}`);
+	const [id,setId]=useState(-1);
 	// const [currentUsername,setCurrentUserName]=useState({});
 	const fetchDataBy_urlending=url=>{
 		API.searchByURL(url).then(res=>{
@@ -19,7 +20,7 @@ function Demo_page(props){
 			return (<Redirect to='/'/>) // go to homepage
 		}
         // console.log('res.body',res.body)
-        const raw_data=res.body;
+        const raw_data=res.data[0];
 		if (eventData!==raw_data){
 			// console.log("data set!")
 			console.log('raw data',raw_data)
@@ -27,7 +28,8 @@ function Demo_page(props){
 		}
 	})}
 	const updateData=data=>{
-		API.postEvent(data);
+		console.log("DATA: ",data);
+		API.updateEvent(data);
 	}
 	
 	const handleCalendarChange=calendar_data=>{
@@ -45,9 +47,11 @@ function Demo_page(props){
 		temp_data.description=obj.description;
 		console.log('t',temp_data);
 		setUrl(obj.urlending)
-		setData(temp_data)
+		// setData(temp_data)
 		console.log('e',eventData);
-		update()
+		updateData(temp_data);
+		fetchDataBy_urlending(url_end);
+		// update()
 	}
 	// first fetch to iniitlaize page
 	// fetchDataBy_urlending(url_end)

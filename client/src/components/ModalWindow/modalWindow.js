@@ -69,7 +69,7 @@ function Modal1() {
       event.valid_times.end = tempEndTime;
       console.log(event);
       api.postEvent(event);
-      window.location = '/events/' + result;
+      window.location = '/event/' + result;
     }
   }
   const [startDate, setStartDate] = useState(new Date(moment().format('YYYY MM DD')));

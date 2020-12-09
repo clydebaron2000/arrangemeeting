@@ -58,10 +58,9 @@ function CreateEvent() {
 		// 	</div>
 
 		// 	<h2>Welcome to Arrange Meeting!</h2>
-		// 	{pageState.loading === true ? <h1>loading</h1> : pageState.loggedIn ? <h1> logged in </h1> : <Redirect to = {{pathname: "/logIn"}} /> }
 		// 	<p><Link to="/">Head Back to Home</Link></p>
 		// </div>
-
+		
 		<div>
 
 			<Navbar />
@@ -112,6 +111,7 @@ function CreateEvent() {
 			<div className="footer">
 				<p>ArrangeMeeting </p>
 			</div>
+			{pageState.loading === true ? <h1> </h1> : pageState.loggedIn ? <h1> </h1> : <Redirect to = {{pathname: "/logIn"}} /> }
 		</div>
 	);
 }
