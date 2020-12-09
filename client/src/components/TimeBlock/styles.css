@@ -1,11 +1,13 @@
 .reg {
-  height: 40px;
+  height: 19px;
   text-align: center;
   vertical-align: middle;
-  background-color: #ccc;
-  border: 1px solid #fff;
+  /* background-color: ; */
+  /* border: inset black 1px; */
 }
 
-table td.highlighted {
-  background-color: #999;
+.hourblock {
+  margin: 0;
+  display: block;
+  border: .1px inset rgb(185, 185, 185)
 }
