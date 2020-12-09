@@ -2,7 +2,7 @@
 
 ## Summary
 
-Arrange meeting description placeholder.
+Arrange meeting description placeholder
 
 [https://arrangemeeting.herokuapp.com/](https://arrangemeeting.herokuapp.com/)
 
