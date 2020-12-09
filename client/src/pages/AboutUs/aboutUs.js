@@ -208,6 +208,7 @@ const AboutUS = () => {
                     </div>
                 </div>
 
+
                 <div class="col">
                     <div class="card">
                     <img src="https://media-exp1.licdn.com/dms/image/C5603AQHzraMTFMbo3w/profile-displayphoto-shrink_400_400/0?e=1612396800&v=beta&t=Xz8EdudwwL1jeoUuiZJFzZGAoCeVvBTBi14-GFTi4XY" className="teamPhoto" alt="Robert Graham" />
@@ -217,6 +218,7 @@ const AboutUS = () => {
                             <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                             <a href="https://www.linkedin.com/in/johnny-lieu/"><i class="fab fa-linkedin fa-3x" /></a>
                             <a href="https://github.com/johnnylieu"><i class="fab fa-github fa-3x"></i></a>
+
                         </div>
                     </div>
                 </div>
