@@ -50,7 +50,7 @@ app.use(passport.initialize());
 app.use(passport.session()) // calls serializeUser and deserializeUser
   // routes
 app.use(Router);
-app.use((req, res) => res.sendFile(path.join(__dirname, "../client/build/index.html")));
+app.use((req, res) => res.sendFile(path.join(__dirname, "/client/build/index.html")));
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
