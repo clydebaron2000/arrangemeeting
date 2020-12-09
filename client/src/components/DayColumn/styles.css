@@ -1,11 +1,13 @@
 .dayColumn {
   width: 100%;
+  min-width: 50px;
 }
 
 .dayHeader {
   text-align: center;
   justify-content: center;
   padding: 2px;
+  text-transform: uppercase;
   /* height: 42px; */
 }
 
@@ -16,20 +18,15 @@
   margin: 0 auto;
 }
 
-.month {
+.month-date {
   display: block;
-  font-size: 10px;
-  padding: 2px;
+  font-size: 15px;
 }
 
 .dayOfWeek {
   display: block;
   font-size: 10px;
   padding: 2px;
-}
-
-.date {
-  font-size: 15px;
 }
 
 .slots {
