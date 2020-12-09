@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MenuItems } from "./MenuItems";
 import './styles.css';
 
@@ -13,7 +13,7 @@ export default class Navbar extends Component {
     render() {
         return (
             <nav className="NavbarItems">
-                <a href="/" className="navbar-logo">Arrange Meeting <i className="fas fa-link"></i></a>
+                <Link to="/" className="navbar-logo">Arrange Meeting <i className="fas fa-link"></i></Link>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.active ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
@@ -22,9 +22,9 @@ export default class Navbar extends Component {
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
-                                <a className={item.cName} href={item.url}>
+                                <Link className={item.cName} to={item.url}>
                                     {item.title}
-                                </a>
+                                </Link>
                             </li>
                         )
                     })}
