@@ -1,6 +1,5 @@
 import React, {useEffect,useState} from 'react'
-import { Link,Redirect,useParams } from 'react-router-dom'
-// import { Link } from 'react-router-dom';
+import { Redirect,useParams } from 'react-router-dom'
 import './styles.css';
 import AvailabilityChooser from '../../components/AvailabilityChooser/AvailabilityChooser';
 import EventInfo from '../../components/EventInfo/EventInfo';
