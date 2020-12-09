@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import DatePicker from 'react-datepicker';
 import api from '../../utils/api';
 import 'react-datepicker/dist/react-datepicker.css'
+import './style.css'
 
 
 function Modal1() {
@@ -82,7 +83,7 @@ function Modal1() {
 
   return (
     <>
-      <Button variant="success" onClick={handleShow}>
+      <Button variant="outline-warning" className="modalButton" onClick={handleShow}>
         Create Event Button
       </Button>
 
@@ -92,8 +93,8 @@ function Modal1() {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
-          <Modal.Title className="">Create your Event</Modal.Title>
+        <Modal.Header className="modalHeader">
+          <Modal.Title className="modalTitle">Create your Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p style={{ fontWeight: "bold" }}>{event.name}</p>
@@ -161,7 +162,7 @@ function Modal1() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>Create</Button>
+          <Button variant="outline-warning" className="modalCloseBtn" onClick={handleSubmit}>Create</Button>
         </Modal.Footer>
       </Modal>
     </>
@@ -171,4 +172,3 @@ function Modal1() {
 
 
 export default Modal1;
-
