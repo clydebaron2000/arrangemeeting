@@ -90,7 +90,7 @@ function Modal1() {
   return (
     <>
       <Button variant="outline-warning" className="modalButton" onClick={handleShow}>
-        Create Event Button
+        Create Event
       </Button>
 
       <Modal

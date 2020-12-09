@@ -56,7 +56,7 @@ function CreateEvent() {
 		<div>
 
 			<Navbar />
-			<div className="header">
+			<div className="CreateHeader">
 				<h2>Scheduling Simplified</h2>
 
 				<p>
