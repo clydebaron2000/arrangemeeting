@@ -26,7 +26,7 @@ function Demo_page(props){
 		}
 	})}
 	const updateData=data=>{
-		API.postEvent(data);
+		API.updateEvent(data);
 	}
 	
 	const handleCalendarChange=calendar_data=>{
