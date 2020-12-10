@@ -16,9 +16,15 @@
   }
 }
 
+.Timezone>p {
+  font-size: 11px;
+  margin: -5px;
+}
+
 #timeLabelColumn {
   font-size: 11;
-  float: left
+  float: left;
+  margin-right: 2px;
 }
 
 #timeLabelColumn {
@@ -51,14 +57,16 @@
 
 .l {
   position: absolute;
+  font-size: 20px;
   left: auto;
-  right: 97%;
+  right: 100%;
   top: 50%;
 }
 
 .r {
   position: absolute;
+  font-size: 20px;
   left: 100%;
   top: 50%;
-  margin-left: 10px
+  /* margin-left: 5px */
 }

@@ -1,7 +1,10 @@
 import React,{Component,useState,useEffect} from 'react'
 import './styles.css';
 import TimeBlock from '../TimeBlock/TimeBlock'
-import OutlineBox from '../OutLineBox/OutLineBox'
+function listCount(list,str=''){
+    if (str==='')return list.length
+    return list.reduce((total,current)=>(current===str)?total+1:total,0)
+  }
 function DayColumn(props){
     const [dayofweek,month,daynum]=props.date.toDateString().split(' ')
     const [info]=useState({
@@ -9,27 +12,46 @@ function DayColumn(props){
         daynum:daynum,
         month:month
     })
-    const [slots]=useState(props.date)
-    const [isSelecting]=useState(props.isSelecting)
-    const [filteredName]=useState(props.filtered_name)
-    const [dayIndex]=useState(props.dayIndex)
-    const [startOnHalf]=useState(props.isStartOnHalfHour)
-    const [output,setOutput]=useState()
-    useEffect(_=>{
-        let out;
-        let i=0;
-        if (startOnHalf){
-            out+=(
-                <div className='hourblock'>
-                    <TimeBlock
-                    
-                    />
-                </div>
-            )
+    const [output,setOutput]=useState([])
+    const [timeBlocks,setTimeBlocks]=useState((<div></div>))
+    const handleBlockChange=obj=>{
+        let tempSlots=props.hourArray;
+        if (obj.isOverlay===true&&props.filtered_name!==undefined){
+        tempSlots[parseInt(obj.key/.5)].push(props.filtered_name)
         }
-    },[slots,isSelecting,filteredName,startOnHalf,output])
+        else{
+            let index=tempSlots[parseInt(obj.key/.5)].indexOf(props.filtered_name)
+            if (index!==-1&&index<tempSlots.length){
+                tempSlots.splice(index,1)
+            }
+        }
+        setOutput(tempSlots)
+    }
+    // useEffect(_=>{
+    //     if (output!==[]){
+    //     props.handleDayChange(
+    //         {
+    //             dayIndex:props.dayIndex,
+    //             dayData:output
+    //         }
+    //     )}
+    // },[output,props])
+    useEffect(_=>{
+        if (props.hourArray!==undefined){
+            console.log(props.hourArray)
+            setTimeBlocks(
+                [...Array(parseInt(props.hourArray.length/2)).keys()].map(i=>//knowing that we always start on the hour mark
+                    <div className='hourblock' key={i}>
+                        <TimeBlock isSelecting={props.isSelecting} shadeNum={listCount(props.hourArray[i],props.filteredName)} isOverlay={false} blockChange={handleBlockChange} 
+                        key={i}/>
+                        <TimeBlock isSelecting={props.isSelecting} shadeNum={listCount(props.hourArray[i],props.filteredName)} isOverlay={false} blockChange={handleBlockChange} 
+                        key={i+.5}/>
+                    </div>
+                    )
+            )}
+    },[props])
     return (
-    <div className="dayColumn">    
+    <div className="dayColumn" >    
         <div className="dayHeader">
                 <span className="dayOfWeek">{info.dayofweek}</span>
             <span className="dayHeaderContent">
@@ -37,13 +59,7 @@ function DayColumn(props){
             </span>
         </div>
         <div className="slots">
-            
-            {[...Array(10)].map(_=>
-            <div className='hourblock'>
-                <TimeBlock/>
-                <TimeBlock/>
-            </div>
-            )}
+            {timeBlocks}
         </div>
     </div>
     )

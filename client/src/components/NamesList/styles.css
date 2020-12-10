@@ -42,7 +42,11 @@
   user-select: none;
 }
 
-.crossOut {
+.namesList>.list>.crossOut {
   color: gray;
   text-decoration: line-through;
+}
+
+.namesList>.list>.crossOut:hover {
+  color: gray;
 }
