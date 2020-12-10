@@ -37,28 +37,32 @@ export default class HomePage extends Component {
 						<h3>Share Your Event Link</h3>
 						<div className="card-image">
 							{/* eslint-disable-next-line */}
-							<img src={img1} ></img>
-						</div>
+				 				{/* Images are under a createImage class */}
+                                 <img src={img1} ></img>
+								 
+                            </div>
 						<p>We make it easy to share your event with your friends!</p>
 					</div>
 
 					<div className="column" >
-						<h3>Find Availablity</h3>
-						<div className="card-image">
-							{/* eslint-disable-next-line */}
-							<img src={img2} ></img>
-
-						</div>
+					<h3>Find Availablity</h3>
+					<div className="card-image">
+						{/* eslint-disable-next-line */}
+				 				{/* Images are under a createImage class */}
+                                 <img src={img2} ></img>
+								 
+                            </div>
 						<p>Coordinate with your friends to find when everyone is free!</p>
 					</div>
 
 					<div className="column" >
-						<h3>Schedule Your Meeting</h3>
-						<div className="card-image">
-							{/* eslint-disable-next-line */}
-							<img src={img3} ></img>
-
-						</div>
+					<h3>Schedule Your Meeting</h3>
+					<div className="card-image">
+						{/* eslint-disable-next-line */}
+				 				{/* Images are under a createImage class */}
+                                 <img src={img3} ></img>
+								 
+                            </div>
 						<p>Finalize a when and where with all your friends so everyone can come!</p>
 					</div>
 				</div>
