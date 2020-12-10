@@ -13,7 +13,7 @@ const AboutUS = () => {
                         <div className="container">
                             <h2>Clyde Rapinan</h2>
                             <p className="title">Full Stack Developer</p>
-                            <p>I am god tier programmer. No questions needed, it's already done. Sham Wow!</p>
+                            {/* <p>I am god tier programmer. No questions needed, it's already done. Sham Wow!</p> */}
                             <a href="https://www.linkedin.com/in/clydebaronrapinan/"><i className="fab fa-linkedin fa-3x" /></a>
                             <a href="https://github.com/clydebaron2000"><i className="fab fa-github fa-3x"></i></a>
                         </div>
@@ -26,7 +26,7 @@ const AboutUS = () => {
                         <div className="container">
                             <h2>King Ting</h2>
                             <p className="title">Full Stack Developer</p>
-                            <p>UCSD Student, Computer Science Major. I enjoy computer programming and love taking opportunities to improve my skills, my journey as a programmer has only just begun.</p>
+                            {/* <p>UCSD Student, Computer Science Major. I enjoy computer programming and love taking opportunities to improve my skills, my journey as a programmer has only just begun.</p> */}
                             <a href="https://www.linkedin.com/in/king-t-80834917b/"><i className="fab fa-linkedin fa-3x" /></a>
                             <a href="https://github.com/Nardacyon"><i className="fab fa-github fa-3x"></i></a>
                         </div>
@@ -40,7 +40,7 @@ const AboutUS = () => {
                         <div className="container">
                             <h2>Patrick Sanders</h2>
                             <p className="title">Full Stack Developer</p>
-                            <p>I have a mongo database connected to my twitter, and it looks like your girl keeps making requests to come into contact with me.</p>
+                            {/* <p>I have a mongo database connected to my twitter, and it looks like your girl keeps making requests to come into contact with me.</p> */}
                             <a href="https://www.linkedin.com/in/patrick-sanders-003546193/"><i className="fab fa-linkedin fa-3x"></i></a>
                             <a href="https://github.com/patches9119"><i className="fab fa-github fa-3x"></i></a>
                         </div>
@@ -52,7 +52,7 @@ const AboutUS = () => {
                         <div className="container">
                             <h2>Robert Graham</h2>
                             <p className="title">Full Stack Developer</p>
-                            <p>I don't usually come back to the scene of the crime. But when I do, I'm usually dumping another body in this lake behind me.</p>
+                            {/* <p>I don't usually come back to the scene of the crime. But when I do, I'm usually dumping another body in this lake behind me.</p> */}
                             <a href="https://www.linkedin.com/in/robert-graham-ba1118b3/"><i className="fab fa-linkedin fa-3x" /></a>
                             <a href="https://github.com/Robmgraham"><i className="fab fa-github fa-3x"></i></a>
                         </div>
@@ -66,7 +66,7 @@ const AboutUS = () => {
                         <div className="container">
                             <h2>Mariella Saviolla</h2>
                             <p className="title">Full Stack Developer</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            {/* <p>Some text that describes me lorem ipsum ipsum lorem.</p> */}
                             <a href="https://www.linkedin.com/in/mariella-saviola/"><i className="fab fa-linkedin fa-3x" /></a>
                             <a href="https://github.com/msaviola"><i className="fab fa-github fa-3x"></i></a>
                         </div>
@@ -80,7 +80,7 @@ const AboutUS = () => {
                         <div class="container">
                             <h2>Johnny L.</h2>
                             <p class="title">Full Stack Developer</p>
-                            <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                            {/* <p>Some text that describes me lorem ipsum ipsum lorem.</p> */}
                             <a href="https://www.linkedin.com/in/johnny-lieu/"><i class="fab fa-linkedin fa-3x" /></a>
                             <a href="https://github.com/johnnylieu"><i class="fab fa-github fa-3x"></i></a>
 

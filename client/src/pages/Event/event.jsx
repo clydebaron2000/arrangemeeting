@@ -18,7 +18,11 @@ function Demo_page(props){
 			return (<Redirect to='/'/>) // go to homepage
 		}
         // console.log('res.body',res.body)
-        const raw_data=res.data[0];
+		let raw_data=res.data[0];
+		//post processing data
+		raw_data.valid_dates=raw_data.valid_dates.map(day=>new Date(day))
+		raw_data.valid_times.start=new Date(raw_data.valid_times.start)
+		raw_data.valid_times.end=new Date(raw_data.valid_times.end)
 		if (eventData!==raw_data){
 			// console.log("data set!")
 			console.log('raw data',raw_data)
