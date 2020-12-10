@@ -1,16 +1,18 @@
-.createEventbody{
-    background-color:#addfd4;
-    text-align: center;
+.createEventbody {
+  background-color: #addfd4;
+  text-align: center;
 }
+
 .createEventDiv {
   margin: auto;
 }
-.createheader{
-    background-color: whitesmoke;
-    padding: 20px;
-    margin: 50px;
-    text-align: center;
-    box-shadow: 2px 2px 18px #888888;
+
+.createheader {
+  background-color: whitesmoke;
+  padding: 20px;
+  margin: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 18px #888888;
 }
 
 .createH2 {
@@ -20,6 +22,7 @@
   background-color: lightseagreen;
 }
 
-form {
+
+/* form {
   margin: 200px;
-}
+} */
