@@ -1,5 +1,5 @@
 .reg {
-  height: 19px;
+  height: 19.5px;
   text-align: center;
   vertical-align: middle;
   /* background-color: ; */
@@ -9,5 +9,61 @@
 .hourblock {
   margin: 0;
   display: block;
-  border: .1px inset rgb(185, 185, 185)
+  border: .5px inset rgb(185, 185, 185)
 }
+
+.shade0 {
+  background-color: none;
+}
+
+.shade1 {
+  background-color: rgba(76, 182, 159, .25);
+}
+
+.shade2 {
+  background-color: rgba(76, 182, 159, .4);
+}
+
+.shade3 {
+  background-color: rgba(76, 182, 159, .54);
+}
+
+.shade4 {
+  background-color: rgba(76, 182, 159, .69);
+}
+
+.shade5 {
+  background-color: rgba(76, 182, 159, .83);
+}
+
+.overlay {
+  background-image: url('../../images/o-dia-lines.png');
+  background-position: center;
+  background-size: 100%;
+  /* background-repeat: repeat; */
+}
+
+
+/* @media only screen and (max-width:11110px) {
+  .overlay {
+    background-size: 30%;
+  }
+}
+
+@media only screen and (max-width:1000px) {
+  .overlay {
+    background-size: 50%;
+  }
+}
+
+@media only screen and (max-width:796px) {
+  .overlay {
+    background-size: 80%;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .overlay {
+    background-size: 150%;
+  }
+} */

@@ -1,17 +1,54 @@
-import React,{Component} from 'react'
+import React,{useState,useEffect} from 'react'
 import './styles.css';
-export default class TimeBlock extends Component{
-    state={
-        shade:0,
+
+function TimeBlock(props){
+    // const [isSelecting,sis]=useState(props.isSelecting);
+    const [isOverlay,setIsOverlay]=useState(props.isOverlay);
+    //helper fx
+    console.log('is',props.isSelecting)
+    const toggleIsOverlay=_=>{
+        if (isOverlay===true)setIsOverlay(false)
+        else if (isOverlay===false) setIsOverlay(true)
+        else {
+            throw new Error('ERR: TimeBlock props.isOverlay is not a boolean');
+        }
     }
-    constructor(props){
-        super(props)
-        this.state.shade=props.shade
-        
+    const mouseOver=_=>{
+        console.log('isSelecting',props.isSelecting);
+        if(props.isSelecting===true){        
+            console.log('toggle')
+            toggleIsOverlay()
+        }
     }
-    render(){
-        return (
-            <div className="reg"></div>
-        )
-    }
+    // useEffect(_=>{
+    //     console.log()
+    //     props.blockChange(
+    //         {
+    //             key:props.key,
+    //             shadeNum:props.shadeNum,
+    //             isOverlay:isOverlay
+    //         }
+    //     )
+    // },[props,isOverlay])
+    return (
+        <div className={`reg shade${props.shadeNum} ${(isOverlay===true)?'overlay':''}`}
+        onMouseOver={mouseOver}
+        // onMouseOverCapture={mouseOut}
+        // onClick={mouseOver}
+        ></div>
+    )
+    
 }
+export default TimeBlock
+
+
+
+
+
+// import React, { useContext } from "react";
+
+// import DeveloperContext from "../utils/DeveloperContext";
+
+
+
+//  const { name, mood, excitementLevel } = useContext(DeveloperContext);
