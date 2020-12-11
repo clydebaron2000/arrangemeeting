@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { MenuItems } from "./MenuItems";
 import './styles.css';
+import img7 from "../../images/AMicon.png"
 
 export default class Navbar extends Component {
     state = { active: false }
@@ -13,7 +14,9 @@ export default class Navbar extends Component {
     render() {
         return (
             <nav className="NavbarItems">
-                <Link to="/" className="navbar-logo">Arrange Meeting <i className="fas fa-link"></i></Link>
+                {/* <Link to="/"> <img className=" logo-image" src= {img7}></img></Link> */}
+                <Link to="/" className="navbar-logo"><img className=" logo-image" src= {img7}></img>Arrange Meeting</Link>
+                
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.active ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>

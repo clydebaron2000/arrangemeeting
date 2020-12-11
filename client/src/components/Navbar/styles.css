@@ -18,6 +18,14 @@
   margin: 20px;
   cursor: pointer;
   text-decoration: none !important;
+  white-space: nowrap;
+}
+
+.logo-image {
+  /* float: right; */
+  margin-right: 10px;
+  height: 40pt;
+  width: 40pt;
 }
 
 .nav-menu {
