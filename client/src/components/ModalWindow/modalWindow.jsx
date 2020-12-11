@@ -34,12 +34,12 @@ function Modal1() {
 
   
   const handleSubmit = () => {
-    if((((startDate.getTime() - endDate.getTime()) / (1000 * 3600 * 24)) > 7) || (((startDate.getTime() - endDate.getTime()) / (1000 * 3600 * 24)) < -7)) {
+    if((((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) > 7) || (((startDate.getTime() - endDate.getTime()) / (1000 * 3600 * 24)) < -7)) {
       // if(false) {
       alert("Date range must be no longer than 7 days!");
-    } else if((startDate.getTime() - endDate.getTime()) > 0) {
+    } else if((startDate.getTime() - endDate.getTime()) >= 0) {
       alert("Start date must come before the end date!");
-    } else if((startTime.getTime() - endTime.getTime()) > 0) {
+    } else if((startTime.getTime() - endTime.getTime()) >= 0) {
       alert("Start time must come before the end time!");
     } else {
       
@@ -80,9 +80,9 @@ function Modal1() {
     }
   }
   const [startDate, setStartDate] = useState(new Date(moment().format('YYYY MM DD')));
-  const [endDate, setEndDate] = useState(new Date(moment().add(7, 'days').format('YYYY MM DD')));
-  const [startTime, setStartTime] = useState(new Date(moment().format('YYYY MM DD')));
-  const [endTime, setEndTime] = useState(new Date(moment().format('YYYY MM DD')));
+  const [endDate, setEndDate] = useState(new Date(moment().add(6, 'days').format('YYYY MM DD')));
+  const [startTime, setStartTime] = useState(new Date(moment().format('YYYY MM DD')).setHours(9,00,00));
+  const [endTime, setEndTime] = useState(new Date(moment().format('YYYY MM DD')).setHours(17,00,00));
 
 
 
