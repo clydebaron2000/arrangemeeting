@@ -14,7 +14,6 @@ export default class Navbar extends Component {
     render() {
         return (
             <nav className="NavbarItems">
-                {/* <Link to="/"> <img className=" logo-image" src= {img7}></img></Link> */}
                 <Link to="/" className="navbar-logo"><img className=" logo-image" src= {img7}></img>Arrange Meeting</Link>
                 
                 <div className="menu-icon" onClick={this.handleClick}>
