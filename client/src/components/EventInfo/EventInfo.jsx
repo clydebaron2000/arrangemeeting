@@ -35,7 +35,7 @@ function EventInfo(props){
     }
     //button handlers for submission form
     const handleConfirm=_=>{
-        if(tempTitle!==""&&tempDesc!==""){//if not empty
+        if(tempTitle!==""||tempDesc!==""){//if not empty
             console.log("TempTitle:",tempTitle);
             console.log("Temp Description:",tempDesc);
             setIsEditingTo(false)
@@ -43,6 +43,7 @@ function EventInfo(props){
             setDescription(tempDesc)//trigger submission effect
             console.log("Title:",title);
             console.log("Description:",description);
+            props.handleInfoChange({name: tempTitle,description: tempDesc})
         }
     }
     const handleCancel=_=>{
@@ -61,15 +62,15 @@ function EventInfo(props){
             
         }
     },[isEditing])
-    useEffect(_=>{//submission block
-        const submissionObj={
-            title:title,
-            description:description,
-            urlending:urlending
-        }
-        console.log("Submission: ",submissionObj);
-        props.handleInfoChange(submissionObj)
-    },[title,description,urlending]);
+    // useEffect(_=>{//submission block
+    //     const submissionObj={
+    //         title:title,
+    //         description:description,
+    //         urlending:urlending
+    //     }
+    //     console.log("Submission: ",submissionObj);
+    //     props.handleInfoChange(submissionObj)
+    // },[title,description,urlending]);
     return(
         <form id="event-info" onSubmit={e=>e.preventDefault()}>
             <div id="event-title-wrapper">
