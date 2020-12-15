@@ -81,8 +81,8 @@ function Modal1() {
   }
   const [startDate, setStartDate] = useState(new Date(moment().format('YYYY MM DD')));
   const [endDate, setEndDate] = useState(new Date(moment().add(6, 'days').format('YYYY MM DD')));
-  const [startTime, setStartTime] = useState(new Date(moment().format('YYYY MM DD')).setHours(9,00,00));
-  const [endTime, setEndTime] = useState(new Date(moment().format('YYYY MM DD')).setHours(17,00,00));
+  const [startTime, setStartTime] = useState(new Date(moment().format('YYYY MM DD')));
+  const [endTime, setEndTime] = useState(new Date(moment().format('YYYY MM DD')));
 
 
 
