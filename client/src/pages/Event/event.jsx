@@ -3,13 +3,13 @@ import { Redirect,useParams } from 'react-router-dom'
 import './styles.css';
 import AvailabilityChooser from '../../components/AvailabilityChooser/AvailabilityChooser';
 import EventInfo from '../../components/EventInfo/EventInfo';
-import API from '../../utils/api';
+import API from '../../utils/api'
 import axios from 'axios';
 function Demo_page(props){
     const [eventData,setData]=useState({
 		name:'',
 		description:'',
-		calendar_matrix:[]});//default vals
+		calendar_matrix:[[[]]]});//default vals
 	const {urlending}=useParams();//exctact the url ending from the location
 	const [url_end,setUrl]=useState(`${urlending}`);
 	// const [currentUsername,setCurrentUserName]=useState({});
@@ -20,7 +20,6 @@ function Demo_page(props){
 		}
         // console.log('res.body',res.body)
 		let raw_data=res.data[0];
-		//post processing data
 		raw_data.valid_dates=raw_data.valid_dates.map(day=>new Date(day))
 		raw_data.valid_times.start=new Date(raw_data.valid_times.start)
 		raw_data.valid_times.end=new Date(raw_data.valid_times.end)
@@ -60,28 +59,26 @@ function Demo_page(props){
 		setData(new_data);
 	}
 	const handleInfoChange=obj=>{
-		// console.log('infochange')
-		// let temp_data=eventData
-		// temp_data.name=obj.title;
-		// temp_data.description=obj.description;
-		// console.log('t',temp_data);
-		// setUrl(obj.urlending)
-		// setData(temp_data)
-		// console.log('e',eventData);
-		// updateData(eventData);
-
-
-		updateData({...eventData,...obj});
+		console.log('infochange')
+		let temp_data=eventData
+		temp_data.name=obj.title;
+		temp_data.description=obj.description;
+		console.log('t',temp_data);
+		setUrl(obj.urlending)
+		updateData(temp_data)
+		setData(temp_data)
+		console.log('e',eventData);
+		// update()
 	}
-	
-	
-	
-	
-	useEffect(_=> {
-		// first fetch to iniitlaize page
+	// first fetch to iniitlaize page
+	// fetchDataBy_urlending(url_end)
+	const update=_=>{
+		console.log('updating');
+		updateData(eventData)
 		fetchDataBy_urlending(url_end)
-
-	},[])
+		console.log('recived',eventData)
+	}
+	useEffect(update,[eventData,url_end]);
 
     return (
         <div className="pageContent">
