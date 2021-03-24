@@ -1,79 +1,80 @@
-import React,{useState,useEffect,useContext} from 'react'
+import React,{useState,useEffect} from 'react'
 import './styles.css';
 import DayColumn from '../DayColumn/DayColumn'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faChevronLeft,faChevronRight} from '@fortawesome/free-solid-svg-icons'
-import AvailabilityContext from '../../contexts/availabilityContext.jsx';
 function Calendar(props){          
-  const context =useContext(AvailabilityContext)
-  const [visIndexes,setVisIndexes]=useState({
-    start:0,
-    end:(context.validDates.length<7)?context.validDates.length:7
-  })
-  
-  
-  const leftArrow=_=>{
-    console.log("l")
-    let min =0
-    let inc=Math.max(-7-1,-visIndexes.start)
-    let out=visIndexes
-    if (inc+out.start<min) return;
-    out.end=out.start
-    out.start+=inc
-    setVisIndexes(out)
+  const [validDates]=useState(props.valid_dates)    
+  const [validTimes]=useState(props.valid_times)   
+  const [calendarMatrix,setCalendarMatrix]=useState(props.calendar_matrix)    
+  const [isSelecting,setIsSelecting]=useState(false)//initialize to false  
+  const [renderedColumns,setRenderedColumns]=useState((<div></div>))
+ 
+  const handleDayChange=(dayChangeObj)=>{
+    const dayIndex=dayChangeObj.dayIndex
+    const dayData=dayChangeObj.dayData
+    let tempMatrix=calendarMatrix
+    tempMatrix[dayIndex]=dayData
+    setCalendarMatrix(tempMatrix)
   }
-  const rightArrow=_=>{
-    console.log("r")
-    let max=context.validDates.length;
-    let inc=Math.min(7,max-visIndexes.end)
-    let out=visIndexes
-    if (inc+out.end>max) return;
-    out.start=out.end
-    out.end+=inc
-    setVisIndexes(out)
-  }
+  const mouseUp=_=>{if(props.isEditing===true)setIsSelecting(false)}
+  const mouseDown=_=>{if(props.isEditing===true)setIsSelecting(true)}
+  
+  //new
+  useEffect(_=>{
+    props.handleAvailabilityChange(calendarMatrix)
+  },[calendarMatrix])
+
+
+  //
   useEffect(()=>{
-    console.log('eff',visIndexes)
-  },[context,visIndexes.start,visIndexes.end])
+    console.log('caltable change',isSelecting)
+    console.log(calendarMatrix)
+    setRenderedColumns(
+      (calendarMatrix!==undefined)?[...Array(calendarMatrix.length).keys()].map(i=>{
+        return (<DayColumn
+          date={validDates[i]}
+          hourArray={calendarMatrix[i]}
+          classname="dayColumn"
+          isSelecting={isSelecting}
+          filtered_name={props.filtered_name}
+          handleDayChange={handleDayChange}
+          dayIndex={i}
+          key={i}
+        /> ) }
+        ):null
+    )
+  },[isSelecting])
   return (
     <div className="calendarTable" >
-      {/* <button className={(visIndexes.start<=0)?"hide":"l"} onClick={leftArrow}>
+      <button className="l">
         <FontAwesomeIcon icon={faChevronLeft}/>
-      </button> */}
+      </button>
       <div id="timeLabelColumn">
-        {(context.validTimes.start!==undefined)?(
+        {(validTimes.start!==undefined)?(
           <div className="Timezone" defaultValue=''>
-            {context.validTimes.start.toString().split(' ')[5].split('-').map(t=>
-              <p key={t}>{t}</p>
+            {validTimes.start.toString().split(' ')[5].split('-').map(t=>
+              <p>{t}</p>
               )}
           </div> 
         ):null}
-        {(context.validTimes.start!==undefined)?(
-          [...Array(parseInt(Math.ceil((context.validTimes.end.valueOf()-context.validTimes.start.valueOf())/1000/60/60))).keys()].map(i=>
+        {(validTimes.start!==undefined)?(
+          [...Array(parseInt(Math.ceil((validTimes.end.valueOf()-validTimes.start.valueOf())/1000/60/60))).keys()].map(i=>
           <div className="time" key={i}>{
-            new Date(context.validTimes.start.valueOf()+i*60*60*1000).toLocaleTimeString().replace(":00:00",'')
+            new Date(validTimes.start.valueOf()+i*60*60*1000).toLocaleTimeString().replace(":00:00",'')
           }</div>
           ))
         :null}   
       </div>
       
-      <div id="ac_grid">
-        {(context.tempCalMatrix!==undefined)?[...Array(visIndexes.end-visIndexes.start).keys()].map(i=>{
-          return (<DayColumn
-            // date={context.validDates[visIndexes.start+i]}
-            // hourArray={context.tempCalMatrix[visIndexes.start+i]}
-            // classname="dayColumn"
-            // filtered_name={props.filtered_name}
-            // handleDayChange={()=>{}}
-            dayIndex={visIndexes.start+i}
-            key={visIndexes.start+i}
-          /> ) }
-          ):null
+      <div id="ac_grid" onMouseUp={mouseUp} onMouseDown={mouseDown}>
+        {
+        renderedColumns
         }
       </div>
-        {/* <button className={(visIndexes.end>=context.validDates.length)?"hide":"r"} onClick={rightArrow}>
+        <button className="r">
         <FontAwesomeIcon icon={faChevronRight}/>
-        </button> */}
+        </button>
     </div>
   )
 }
